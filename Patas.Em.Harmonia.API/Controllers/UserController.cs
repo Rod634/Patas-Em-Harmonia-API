@@ -6,6 +6,5 @@ namespace Patas.Em.Harmonia.API.Controllers
     [Route("v1/[controller]")]
     public class UserController : ControllerBase
     {
-       
     }
 }
