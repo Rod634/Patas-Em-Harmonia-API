@@ -10,6 +10,11 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Patas.Em.Harmonia.Infrastructure.Data\Patas.Em.Harmonia.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\Patas.Em.Harmonia.Infrastructure\Patas.Em.Harmonia.Infrastructure.Setup.csproj" />
+  </ItemGroup>
+
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

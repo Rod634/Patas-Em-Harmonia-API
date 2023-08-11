@@ -1,4 +1,10 @@
+using Patas.Em.Harmonia.Infrastructure.Setup;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var startup = new Startup(builder.Configuration, builder.Services);
+startup.AddDependencies();
+startup.AddDbContext();
 
 // Add services to the container.
 

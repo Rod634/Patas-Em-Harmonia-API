@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patas.Em.Harmonia.API", "Pa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patas.Em.Harmonia.Domain", "Patas.Em.Harmonia.Domain\Patas.Em.Harmonia.Domain.csproj", "{36E407A7-1369-44D8-8930-8816CEED51F0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patas.Em.Harmonia.Infrastructure", "Patas.Em.Harmonia.Infrastructure\Patas.Em.Harmonia.Infrastructure.csproj", "{2975C0CA-54F8-4A18-AB93-B22DB7FC4216}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patas.Em.Harmonia.Infrastructure.Setup", "Patas.Em.Harmonia.Infrastructure\Patas.Em.Harmonia.Infrastructure.Setup.csproj", "{2975C0CA-54F8-4A18-AB93-B22DB7FC4216}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patas.Em.Harmonia.Tests", "Patas.Em.Harmonia.Tests\Patas.Em.Harmonia.Tests.csproj", "{683D7D10-A029-4129-A7E1-71EB7B16C4DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patas.Em.Harmonia.Services", "Patas.Em.Harmonia.Services\Patas.Em.Harmonia.Services.csproj", "{939DEB97-9F37-4561-AF9F-00395767AD61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patas.Em.Harmonia.Services", "Patas.Em.Harmonia.Services\Patas.Em.Harmonia.Services.csproj", "{939DEB97-9F37-4561-AF9F-00395767AD61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patas.Em.Harmonia.Infrastructure.Data", "Patas.Em.Harmonia.Infrastructure.Data\Patas.Em.Harmonia.Infrastructure.Data.csproj", "{35B9AD90-B39D-414A-924B-5B48968645B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{939DEB97-9F37-4561-AF9F-00395767AD61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{939DEB97-9F37-4561-AF9F-00395767AD61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{939DEB97-9F37-4561-AF9F-00395767AD61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35B9AD90-B39D-414A-924B-5B48968645B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35B9AD90-B39D-414A-924B-5B48968645B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35B9AD90-B39D-414A-924B-5B48968645B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35B9AD90-B39D-414A-924B-5B48968645B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
