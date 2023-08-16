@@ -21,5 +21,11 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Interfaces
         /// </summary>
         /// <returns>A bool that indicates success or not</returns>
         Task<bool> DeleteUserByEmail(string email);
+
+        /// <summary>
+        /// Create a user
+        /// </summary>
+        /// <returns>A bool that indicates success or not</returns>
+        Task<bool> CreateUser(User user);
     }
 }
