@@ -9,9 +9,11 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
+            builder.HasKey(e => e.Id);
+
             builder.Property(e => e.Id)
-                          .ValueGeneratedNever()
-                          .HasColumnName("id");
+                .HasColumnName("id")
+                .IsRequired();
 
             builder.Property(e => e.AditionalInfo)
                 .HasMaxLength(1000)

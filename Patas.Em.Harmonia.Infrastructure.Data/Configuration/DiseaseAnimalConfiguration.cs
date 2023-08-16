@@ -11,9 +11,12 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Configuration
         {
             builder.ToTable("Disease_animal");
 
+
+            builder.HasKey(e => e.Id);
+
             builder.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
+                .HasColumnName("id")
+                .IsRequired();
 
             builder.Property(e => e.IdAnimal).HasColumnName("id_animal");
 

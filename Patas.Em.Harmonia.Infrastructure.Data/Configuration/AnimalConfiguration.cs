@@ -11,9 +11,11 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Configuration
         {
             builder.ToTable("Animal");
 
+            builder.HasKey(e => e.IdUser);
+
             builder.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
+                .HasColumnName("id")
+                .IsRequired();
 
             builder.Property(e => e.Age)
                 .HasMaxLength(255)
