@@ -1,8 +1,6 @@
 ﻿using Patas.Em.Harmonia.Domain.Models;
 using Patas.Em.Harmonia.Infrastructure.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+
 namespace Patas.Em.Harmonia.Services.Interfaces
 {
     public interface IUserService
