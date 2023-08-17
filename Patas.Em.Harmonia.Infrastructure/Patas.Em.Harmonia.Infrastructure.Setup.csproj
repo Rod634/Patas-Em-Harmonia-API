@@ -15,7 +15,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Patas.Em.Harmonia.Domain\Patas.Em.Harmonia.Domain.csproj" />
     <ProjectReference Include="..\Patas.Em.Harmonia.Infrastructure.Data\Patas.Em.Harmonia.Infrastructure.Data.csproj" />
-    <ProjectReference Include="..\Patas.Em.Harmonia.Services\Patas.Em.Harmonia.Services.csproj" />
   </ItemGroup>
 
 </Project>

@@ -31,7 +31,8 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Configuration
                 .HasColumnName("email");
 
             builder.Property(e => e.HasPets)
-                .IsRequired()
+                .HasMaxLength(255)
+                .IsUnicode(false)
                 .HasColumnName("has_pets");
 
             builder.Property(e => e.Name)

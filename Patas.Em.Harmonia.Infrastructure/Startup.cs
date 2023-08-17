@@ -1,16 +1,10 @@
-﻿using FluentValidation;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Patas.Em.Harmonia.Domain.Models;
 using Patas.Em.Harmonia.Domain.UI;
-using Patas.Em.Harmonia.Domain.Validators;
 using Patas.Em.Harmonia.Infrastructure.Data;
 using Patas.Em.Harmonia.Infrastructure.Data.Context;
 using Patas.Em.Harmonia.Infrastructure.Data.Interfaces;
-using Patas.Em.Harmonia.Infrastructure.Data.Models;
-using Patas.Em.Harmonia.Services;
-using Patas.Em.Harmonia.Services.Interfaces;
 
 namespace Patas.Em.Harmonia.Infrastructure.Setup
 {
@@ -37,15 +31,10 @@ namespace Patas.Em.Harmonia.Infrastructure.Setup
             // Dependency injection
             Services.AddSingleton(settings)
                     .AddScoped<PatasDBContext>()
-                    .AddScoped<IRepositoryBase, RepositoryBase>()
-                    .AddScoped<IUserRepository, UserRepository>()
-                    .AddScoped<IUserService, UserService>();
-            
-            ConfigureValidators();
-            AddDbContext();
+                    .AddScoped<IRepositoryBase, RepositoryBase>();
         }
 
-        private void AddDbContext()
+        public void AddDbContext()
         {
             var settings = GetSettings();
 
@@ -56,11 +45,6 @@ namespace Patas.Em.Harmonia.Infrastructure.Setup
                     .UseSqlServer(settings.DatabaseConnectionString)
                     .UseQueryTrackingBehavior(QueryTrackingBehavior.TrackAll);
             }, ServiceLifetime.Scoped);
-        }
-
-        private void ConfigureValidators()
-        {
-            Services.AddScoped<IValidator<UserBaseData>, UserValidator>();
         }
 
         private ApiSettings GetSettings()
