@@ -1,9 +1,11 @@
 ﻿using Patas.Em.Harmonia.Domain.Models;
 using Patas.Em.Harmonia.Infrastructure.Data.Models;
-
-namespace Patas.Em.Harmonia.Infrastructure.Data.Interfaces
+using System;
+using System.Collections.Generic;
+using System.Linq;
+namespace Patas.Em.Harmonia.Services.Interfaces
 {
-    public interface IUserRepository
+    public interface IUserService
     {
         /// <summary>
         /// Get an user data by email
@@ -27,6 +29,6 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Interfaces
         /// Create a user
         /// </summary>
         /// <returns>A bool that indicates success or not</returns>
-        Task<bool> CreateUser(User user);
+        Task<bool> CreateUser(UserBaseData user);
     }
 }

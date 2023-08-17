@@ -1,5 +1,7 @@
 ﻿#nullable disable
 
+using Patas.Em.Harmonia.Domain.Models;
+
 namespace Patas.Em.Harmonia.Infrastructure.Data.Models
 {
     public partial class User
@@ -7,6 +9,19 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Models
         public User()
         {
             Animals = new HashSet<Animal>();
+        }
+
+        public User(UserBaseData newUser)
+        {
+            Name = newUser.Name;
+            Email = newUser.Email;
+            Phone = newUser.Phone;
+            Passwrd = newUser.Passwrd;
+            HasPets = newUser.HasPets;
+            NgoName = newUser.NgoName;
+            AditionalInfo = newUser.AditionalInfo;
+            Status = newUser.Status;
+            Created = DateTime.UtcNow;
         }
 
         public int Id { get; set; }

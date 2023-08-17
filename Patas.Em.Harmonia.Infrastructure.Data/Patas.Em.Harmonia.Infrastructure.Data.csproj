@@ -12,4 +12,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Patas.Em.Harmonia.Domain\Patas.Em.Harmonia.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
