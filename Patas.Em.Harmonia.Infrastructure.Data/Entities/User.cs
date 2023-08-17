@@ -1,5 +1,6 @@
 ﻿#nullable disable
 
+using Patas.Em.Harmonia.Domain.Constants;
 using Patas.Em.Harmonia.Domain.Models;
 
 namespace Patas.Em.Harmonia.Infrastructure.Data.Models
@@ -20,7 +21,7 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Models
             HasPets = newUser.HasPets;
             NgoName = newUser.NgoName;
             AditionalInfo = newUser.AditionalInfo;
-            Status = newUser.Status;
+            Status = Constants.ACTIVE;
             Created = DateTime.UtcNow;
         }
 

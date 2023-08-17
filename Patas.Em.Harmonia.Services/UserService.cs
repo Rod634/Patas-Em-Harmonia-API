@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Patas.Em.Harmonia.Domain.Constants;
 using Patas.Em.Harmonia.Domain.Exceptions;
 using Patas.Em.Harmonia.Domain.Models;
 using Patas.Em.Harmonia.Infrastructure.Data.Interfaces;
@@ -53,7 +54,7 @@ namespace Patas.Em.Harmonia.Services
         {
             if(email == null)
             {
-                throw new DomainException("Email shouldn't be empty");
+                throw new DomainException(Constants.EMAIL_EMPTY_WARNING);
             }
 
             var isSuccess = await _userRepository.DeleteUserByEmail(email);
@@ -65,7 +66,7 @@ namespace Patas.Em.Harmonia.Services
         {
             if (email == null)
             {
-                throw new DomainException("Email shouldn't be empty");
+                throw new DomainException(Constants.EMAIL_EMPTY_WARNING);
             }
 
             var user = await _userRepository.GetUserByMail(email);

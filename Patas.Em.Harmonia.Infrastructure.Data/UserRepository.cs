@@ -66,7 +66,7 @@ namespace Patas.Em.Harmonia.Infrastructure.Data
         public async Task<User> GetUserByMail(string email)
         {
             var user = await _patasDBContext.Users.Where(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase)).FirstOrDefaultAsync();
-            return user ?? new User();
+            return user;
         }
     }
 }
