@@ -17,7 +17,7 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Models
             Name = newUser.Name;
             Email = newUser.Email;
             Phone = newUser.Phone;
-            Passwrd = newUser.Passwrd;
+            Passwrd = "2023";
             HasPets = newUser.HasPets;
             NgoName = newUser.NgoName;
             AditionalInfo = newUser.AditionalInfo;
@@ -30,7 +30,7 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Models
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Passwrd { get; set; }
-        public string HasPets { get; set; }
+        public bool HasPets { get; set; }
         public string NgoName { get; set; }
         public string AditionalInfo { get; set; }
         public string Status { get; set; }
