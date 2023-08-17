@@ -52,7 +52,7 @@ namespace Patas.Em.Harmonia.Services
 
         public async Task<bool> DeleteUserByEmail(string email)
         {
-            if(email == null)
+            if(string.IsNullOrEmpty(email))
             {
                 throw new DomainException(Constants.EMAIL_EMPTY_WARNING);
             }
@@ -64,7 +64,7 @@ namespace Patas.Em.Harmonia.Services
 
         public async Task<User> GetUserByMail(string email)
         {
-            if (email == null)
+            if (string.IsNullOrEmpty(email))
             {
                 throw new DomainException(Constants.EMAIL_EMPTY_WARNING);
             }
