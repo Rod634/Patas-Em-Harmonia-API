@@ -1,4 +1,4 @@
-﻿namespace Patas.Em.Harmonia.Infrastructure.Data.Interfaces
+﻿namespace Patas.Em.Harmonia.Domain.Interfaces
 {
     public interface IRepositoryBase
     {

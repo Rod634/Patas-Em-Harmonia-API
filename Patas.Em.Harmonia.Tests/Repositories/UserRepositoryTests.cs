@@ -1,10 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NSubstitute;
+using Patas.Em.Harmonia.Domain.Interfaces;
 using Patas.Em.Harmonia.Domain.Models;
 using Patas.Em.Harmonia.Infrastructure.Data;
 using Patas.Em.Harmonia.Infrastructure.Data.Context;
-using Patas.Em.Harmonia.Infrastructure.Data.Interfaces;
-using Patas.Em.Harmonia.Infrastructure.Data.Models;
 using Xunit;
 
 namespace Patas.Em.Harmonia.Tests.Repositories
@@ -18,7 +17,7 @@ namespace Patas.Em.Harmonia.Tests.Repositories
         public UserRepositoryTests()
         {
             var databaseName = $"partnerDb_${DateTime.Now.ToFileTimeUtc()}";
-            _dbContextOptions = new DbContextOptionsBuilder<PatasDBContext>().UseInMemoryDatabase(databaseName).Options; ;
+            _dbContextOptions = new DbContextOptionsBuilder<PatasDBContext>().UseInMemoryDatabase(databaseName).Options; 
             _repositoryBase = Substitute.For<IRepositoryBase>();
         }
 

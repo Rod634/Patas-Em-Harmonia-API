@@ -2,15 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Patas.Em.Harmonia.Domain.Interfaces;
 using Patas.Em.Harmonia.Domain.Models;
 using Patas.Em.Harmonia.Domain.UI;
 using Patas.Em.Harmonia.Domain.Validators;
 using Patas.Em.Harmonia.Infrastructure.Data;
 using Patas.Em.Harmonia.Infrastructure.Data.Context;
-using Patas.Em.Harmonia.Infrastructure.Data.Interfaces;
-using Patas.Em.Harmonia.Infrastructure.Data.Models;
 using Patas.Em.Harmonia.Services;
-using Patas.Em.Harmonia.Services.Interfaces;
 
 namespace Patas.Em.Harmonia.Infrastructure.Setup
 {

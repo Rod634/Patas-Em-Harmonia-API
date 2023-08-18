@@ -1,10 +1,8 @@
 ﻿using FluentValidation;
 using Patas.Em.Harmonia.Domain.Constants;
 using Patas.Em.Harmonia.Domain.Exceptions;
+using Patas.Em.Harmonia.Domain.Interfaces;
 using Patas.Em.Harmonia.Domain.Models;
-using Patas.Em.Harmonia.Infrastructure.Data.Interfaces;
-using Patas.Em.Harmonia.Infrastructure.Data.Models;
-using Patas.Em.Harmonia.Services.Interfaces;
 
 namespace Patas.Em.Harmonia.Services
 {

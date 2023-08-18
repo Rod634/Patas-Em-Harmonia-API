@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Patas.Em.Harmonia.Domain.Interfaces;
 using Patas.Em.Harmonia.Domain.Models;
-using Patas.Em.Harmonia.Services.Interfaces;
 
 namespace Patas.Em.Harmonia.API.Controllers
 {

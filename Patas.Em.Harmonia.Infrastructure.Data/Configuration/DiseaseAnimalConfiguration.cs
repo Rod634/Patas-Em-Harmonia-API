@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Patas.Em.Harmonia.Infrastructure.Data.Models;
+using Patas.Em.Harmonia.Domain.Models;
 
 namespace Patas.Em.Harmonia.Infrastructure.Data.Configuration
 {

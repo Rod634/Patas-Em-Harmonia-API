@@ -1,9 +1,6 @@
 ﻿#nullable disable
 
-using Patas.Em.Harmonia.Domain.Constants;
-using Patas.Em.Harmonia.Domain.Models;
-
-namespace Patas.Em.Harmonia.Infrastructure.Data.Models
+namespace Patas.Em.Harmonia.Domain.Models
 {
     public partial class User
     {
@@ -21,8 +18,8 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Models
             HasPets = newUser.HasPets;
             NgoName = newUser.NgoName;
             AditionalInfo = newUser.AditionalInfo;
-            Status = Constants.ACTIVE;
             Created = DateTime.UtcNow;
+            Status = Constants.Constants.ACTIVE;
         }
 
         public int Id { get; set; }
