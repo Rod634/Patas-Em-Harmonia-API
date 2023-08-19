@@ -52,7 +52,7 @@ namespace Patas.Em.Harmonia.Services
         {
             if(string.IsNullOrEmpty(email))
             {
-                throw new DomainException(Constants.EMAIL_EMPTY_WARNING);
+                throw new DomainException(Constant.EMAIL_EMPTY_WARNING);
             }
 
             var isSuccess = await _userRepository.DeleteUserByEmail(email);
@@ -64,7 +64,7 @@ namespace Patas.Em.Harmonia.Services
         {
             if (string.IsNullOrEmpty(email))
             {
-                throw new DomainException(Constants.EMAIL_EMPTY_WARNING);
+                throw new DomainException(Constant.EMAIL_EMPTY_WARNING);
             }
 
             var user = await _userRepository.GetUserByMail(email);

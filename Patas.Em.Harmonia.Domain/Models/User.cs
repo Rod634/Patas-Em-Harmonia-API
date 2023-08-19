@@ -1,5 +1,7 @@
 ﻿#nullable disable
 
+using Patas.Em.Harmonia.Domain.Constants;
+
 namespace Patas.Em.Harmonia.Domain.Models
 {
     public partial class User
@@ -14,12 +16,11 @@ namespace Patas.Em.Harmonia.Domain.Models
             Name = newUser.Name;
             Email = newUser.Email;
             Phone = newUser.Phone;
-            Passwrd = "2023";
             HasPets = newUser.HasPets;
             NgoName = newUser.NgoName;
             AditionalInfo = newUser.AditionalInfo;
             Created = DateTime.UtcNow;
-            Status = Constants.Constants.ACTIVE;
+            Status = Constant.ACTIVE;
         }
 
         public int Id { get; set; }
