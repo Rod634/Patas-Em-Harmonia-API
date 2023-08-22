@@ -9,45 +9,60 @@ namespace Patas.Em.Harmonia.Services
 {
     public class AnimalService : IAnimalService
     {
-        private readonly IAnimalRepository _userRepository;
-        private readonly IValidator<UserModel> _validator;
+        private readonly IAnimalRepository _animalRepository;
+        private readonly IValidator<UserData> _validator;
 
-        public AnimalService(IAnimalRepository userRepository, IValidator<UserModel> validator)
+        public AnimalService(IAnimalRepository animalRepository, IValidator<UserData> validator)
         {
-            _userRepository = userRepository;
+            _animalRepository = animalRepository;
             _validator = validator;
         }
 
-        public Task<bool> ChangeAnimalState(string status, int animalId)
+        public async Task<bool> ChangeAnimalState(string status, int animalId)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(status) || animalId < 0)
+            {
+                throw new ArgumentException(Constant.STATUS_ID_EMPTY_WARNING);
+            }
+
+            var isSuccess = await _animalRepository.ChangeAnAnimalStatus(status, animalId);
+            return isSuccess;
         }
 
-        public Task<bool> CreateAnimal(Animal animal)
+        public Task<bool> CreateAnimal(AnimalData animal)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                throw new DomainException(e.Message);
+            }
         }
 
         public Task<List<Animal>> GetAllAnimals()
         {
-            throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                throw new DomainException(e.Message);
+            }
         }
 
         public Task<List<Animal>> GetAnimalsFromAUser(string userId)
         {
-            throw new NotImplementedException();
-        }
-
-        public async Task<User> GetUserByMail(string email)
-        {
-            if (string.IsNullOrEmpty(email))
+            try
             {
-                throw new DomainException(Constant.EMAIL_EMPTY_WARNING);
+
             }
-
-            var user = await _userRepository.GetUserByMail(email);
-
-            return user;
+            catch (Exception e)
+            {
+                throw new DomainException(e.Message);
+            }
         }
     }
 }
