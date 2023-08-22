@@ -18,7 +18,7 @@ namespace Patas.Em.Harmonia.Infrastructure.Data
             _patasDBContext = patasDBContext;
         }
 
-        public async Task<User> ChangeUserData(UserBaseData userNewData)
+        public async Task<User> ChangeUserData(UserModel userNewData)
         {
             var user = await GetUserByMail(userNewData.Email);
 

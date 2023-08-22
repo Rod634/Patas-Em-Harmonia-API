@@ -10,9 +10,9 @@ namespace Patas.Em.Harmonia.Services
     public class AnimalService : IAnimalService
     {
         private readonly IUserRepository _userRepository;
-        private readonly IValidator<UserBaseData> _validator;
+        private readonly IValidator<UserModel> _validator;
 
-        public AnimalService(IUserRepository userRepository, IValidator<UserBaseData> validator)
+        public AnimalService(IUserRepository userRepository, IValidator<UserModel> validator)
         {
             _userRepository = userRepository;
             _validator = validator;
