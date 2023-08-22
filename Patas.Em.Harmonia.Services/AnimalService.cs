@@ -10,15 +10,15 @@ namespace Patas.Em.Harmonia.Services
     public class AnimalService : IAnimalService
     {
         private readonly IAnimalRepository _animalRepository;
-        private readonly IValidator<UserData> _validator;
+        private readonly IValidator<AnimalData> _validator;
 
-        public AnimalService(IAnimalRepository animalRepository, IValidator<UserData> validator)
+        public AnimalService(IAnimalRepository animalRepository, IValidator<AnimalData> validator)
         {
             _animalRepository = animalRepository;
             _validator = validator;
         }
 
-        public async Task<bool> ChangeAnimalState(string status, int animalId)
+        public async Task<bool> ChangeAnimalStatus(string status, int animalId)
         {
             if (string.IsNullOrEmpty(status) || animalId < 0)
             {
@@ -29,11 +29,15 @@ namespace Patas.Em.Harmonia.Services
             return isSuccess;
         }
 
-        public Task<bool> CreateAnimal(AnimalData animal)
+        public async Task<bool> CreateAnimal(AnimalData animalRequest)
         {
             try
             {
+                _validator.ValidateAndThrow(animalRequest);
 
+                var animal = new Animal(animalRequest);
+                var isSuccess = await _animalRepository.CreateAnimal(animal);
+                return isSuccess;
             }
             catch (Exception e)
             {
@@ -41,28 +45,20 @@ namespace Patas.Em.Harmonia.Services
             }
         }
 
-        public Task<List<Animal>> GetAllAnimals()
+        public async Task<List<Animal>> GetAllAnimals()
         {
-            try
-            {
-
-            }
-            catch (Exception e)
-            {
-                throw new DomainException(e.Message);
-            }
+            return await _animalRepository.GetAllAnimals();
         }
 
-        public Task<List<Animal>> GetAnimalsFromAUser(string userId)
+        public async Task<List<Animal>> GetAnimalsFromAUser(int userId)
         {
-            try
+            if (userId < 0)
             {
+                throw new ArgumentException(Constant.STATUS_ID_EMPTY_WARNING);
+            }
 
-            }
-            catch (Exception e)
-            {
-                throw new DomainException(e.Message);
-            }
+            var animals = await _animalRepository.GetAllAnimalsFromAnUser(userId);
+            return animals;
         }
     }
 }
