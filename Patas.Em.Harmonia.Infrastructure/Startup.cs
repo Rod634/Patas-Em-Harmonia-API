@@ -37,8 +37,10 @@ namespace Patas.Em.Harmonia.Infrastructure.Setup
                     .AddScoped<PatasDBContext>()
                     .AddScoped<IRepositoryBase, RepositoryBase>()
                     .AddScoped<IUserRepository, UserRepository>()
-                    .AddScoped<IUserService, UserService>();
-            
+                    .AddScoped<IAnimalRepository, AnimalRepository>()
+                    .AddScoped<IUserService, UserService>()
+                    .AddScoped<IAnimalService, AnimalService>();
+
             ConfigureValidators();
             AddDbContext();
         }
