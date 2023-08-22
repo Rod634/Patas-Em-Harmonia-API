@@ -12,7 +12,7 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
             Animals = new HashSet<Animal>();
         }
 
-        public User(UserModel newUser)
+        public User(UserData newUser)
         {
             Name = newUser.Name;
             Email = newUser.Email;

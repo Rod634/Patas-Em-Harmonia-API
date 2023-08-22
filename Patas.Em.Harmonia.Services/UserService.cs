@@ -10,15 +10,15 @@ namespace Patas.Em.Harmonia.Services
     public class UserService : IUserService
     {
         private readonly IAnimalRepository _userRepository;
-        private readonly IValidator<UserModel> _validator;
+        private readonly IValidator<UserData> _validator;
 
-        public UserService(IAnimalRepository userRepository, IValidator<UserModel> validator)
+        public UserService(IAnimalRepository userRepository, IValidator<UserData> validator)
         {
             _userRepository = userRepository;
             _validator = validator;
         }
 
-        public async Task<User> ChangeUserData(UserModel userNewData)
+        public async Task<User> ChangeUserData(UserData userNewData)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace Patas.Em.Harmonia.Services
             }
         }
 
-        public async Task<bool> CreateUser(UserModel user)
+        public async Task<bool> CreateUser(UserData user)
         {
             try
             {

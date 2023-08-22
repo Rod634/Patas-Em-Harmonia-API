@@ -94,7 +94,7 @@ namespace Patas.Em.Harmonia.Tests.Repositories
         [Fact]
         public async Task ChangeUserSuccess()
         {
-            var user = new UserModel()
+            var user = new UserData()
             {
                 Name = "teste2",
                 Email = EMAIL_SUCCESS_MOCK,
@@ -114,7 +114,7 @@ namespace Patas.Em.Harmonia.Tests.Repositories
         [Fact]
         public async Task ChangeUserFailure()
         {
-            var user = new UserModel()
+            var user = new UserData()
             {
                 Name = "teste",
                 Email = "emailnovo@email.com",

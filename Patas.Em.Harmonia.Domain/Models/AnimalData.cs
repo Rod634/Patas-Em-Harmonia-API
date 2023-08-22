@@ -1,6 +1,6 @@
 ﻿namespace Patas.Em.Harmonia.Domain.Models
 {
-    public class AnimalModel
+    public class AnimalData
     {
         public string Name { get; set; }
         public string Age { get; set; }

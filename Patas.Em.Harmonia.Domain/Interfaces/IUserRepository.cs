@@ -15,7 +15,7 @@ namespace Patas.Em.Harmonia.Domain.Interfaces
         /// Change a user info
         /// </summary>
         /// <returns>An user with the new data</returns>
-        Task<User> ChangeUserData(UserModel userNewData);
+        Task<User> ChangeUserData(UserData userNewData);
 
         /// <summary>
         /// Delete a user by mail
