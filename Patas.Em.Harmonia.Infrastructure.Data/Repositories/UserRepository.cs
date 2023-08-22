@@ -5,7 +5,7 @@ using Patas.Em.Harmonia.Domain.Models.Entities;
 using Patas.Em.Harmonia.Infrastructure.Data.Context;
 
 
-namespace Patas.Em.Harmonia.Infrastructure.Data
+namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
 {
     public class UserRepository : IUserRepository
     {
@@ -22,7 +22,7 @@ namespace Patas.Em.Harmonia.Infrastructure.Data
         {
             var user = await GetUserByMail(userNewData.Email);
 
-            if(user == null)
+            if (user == null)
             {
                 return new User();
             }

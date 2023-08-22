@@ -18,7 +18,7 @@ namespace Patas.Em.Harmonia.Services
             _validator = validator;
         }
 
-        public Task<bool> ChangeAnimalState(string status)
+        public Task<bool> ChangeAnimalState(string status, int animalId)
         {
             throw new NotImplementedException();
         }
@@ -33,7 +33,7 @@ namespace Patas.Em.Harmonia.Services
             throw new NotImplementedException();
         }
 
-        public Task<List<Animal>> GetAnimalsFromAUser(string email)
+        public Task<List<Animal>> GetAnimalsFromAUser(string userId)
         {
             throw new NotImplementedException();
         }

@@ -6,8 +6,8 @@ using Patas.Em.Harmonia.Domain.Interfaces;
 using Patas.Em.Harmonia.Domain.Models;
 using Patas.Em.Harmonia.Domain.UI;
 using Patas.Em.Harmonia.Domain.Validators;
-using Patas.Em.Harmonia.Infrastructure.Data;
 using Patas.Em.Harmonia.Infrastructure.Data.Context;
+using Patas.Em.Harmonia.Infrastructure.Data.Repositories;
 using Patas.Em.Harmonia.Services;
 
 namespace Patas.Em.Harmonia.Infrastructure.Setup

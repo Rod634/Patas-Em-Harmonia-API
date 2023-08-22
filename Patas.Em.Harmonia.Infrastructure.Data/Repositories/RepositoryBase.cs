@@ -1,7 +1,7 @@
 ﻿using Patas.Em.Harmonia.Infrastructure.Data.Context;
 using Patas.Em.Harmonia.Domain.Interfaces;
 
-namespace Patas.Em.Harmonia.Infrastructure.Data
+namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
 {
     public class RepositoryBase : IRepositoryBase
     {

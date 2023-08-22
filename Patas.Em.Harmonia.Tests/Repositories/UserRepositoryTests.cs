@@ -2,8 +2,8 @@
 using NSubstitute;
 using Patas.Em.Harmonia.Domain.Interfaces;
 using Patas.Em.Harmonia.Domain.Models;
-using Patas.Em.Harmonia.Infrastructure.Data;
 using Patas.Em.Harmonia.Infrastructure.Data.Context;
+using Patas.Em.Harmonia.Infrastructure.Data.Repositories;
 using Xunit;
 
 namespace Patas.Em.Harmonia.Tests.Repositories
