@@ -1,10 +1,12 @@
 ﻿#nullable disable
 
-namespace Patas.Em.Harmonia.Domain.Models
+using Patas;
+
+namespace Patas.Em.Harmonia.Domain.Models.Entities
 {
-    public partial class Disease
+    public partial class Status
     {
-        public Disease()
+        public Status()
         {
             DiseaseAnimals = new HashSet<DiseaseAnimal>();
         }

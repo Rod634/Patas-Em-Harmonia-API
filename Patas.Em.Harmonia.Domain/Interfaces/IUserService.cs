@@ -1,4 +1,5 @@
 ﻿using Patas.Em.Harmonia.Domain.Models;
+using Patas.Em.Harmonia.Domain.Models.Entities;
 
 namespace Patas.Em.Harmonia.Domain.Interfaces
 {

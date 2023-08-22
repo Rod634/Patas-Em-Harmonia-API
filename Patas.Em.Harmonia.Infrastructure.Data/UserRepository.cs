@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Patas.Em.Harmonia.Domain.Interfaces;
 using Patas.Em.Harmonia.Domain.Models;
+using Patas.Em.Harmonia.Domain.Models.Entities;
 using Patas.Em.Harmonia.Infrastructure.Data.Context;
 
 

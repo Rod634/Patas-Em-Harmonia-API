@@ -1,6 +1,8 @@
 ﻿#nullable disable
 
-namespace Patas.Em.Harmonia.Domain.Models
+using Patas;
+
+namespace Patas.Em.Harmonia.Domain.Models.Entities
 {
     public partial class VaccineAnimal
     {

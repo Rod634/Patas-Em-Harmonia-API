@@ -1,8 +1,9 @@
 ﻿#nullable disable
 
+using Patas;
 using Patas.Em.Harmonia.Domain.Constants;
 
-namespace Patas.Em.Harmonia.Domain.Models
+namespace Patas.Em.Harmonia.Domain.Models.Entities
 {
     public partial class User
     {
