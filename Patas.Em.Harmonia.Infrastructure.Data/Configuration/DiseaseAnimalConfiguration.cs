@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Patas.Em.Harmonia.Infrastructure.Data.Models;
+using Patas.Em.Harmonia.Domain.Models;
 
 namespace Patas.Em.Harmonia.Infrastructure.Data.Configuration
 {
@@ -11,9 +11,12 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Configuration
         {
             builder.ToTable("Disease_animal");
 
+
+            builder.HasKey(e => e.Id);
+
             builder.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
+                .HasColumnName("id")
+                .IsRequired();
 
             builder.Property(e => e.IdAnimal).HasColumnName("id_animal");
 

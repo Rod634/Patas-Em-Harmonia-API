@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Patas.Em.Harmonia.Infrastructure.Data.Models;
+using Patas.Em.Harmonia.Domain.Models;
 
 namespace Patas.Em.Harmonia.Infrastructure.Data.Configuration
 {
@@ -9,9 +9,11 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
+            builder.HasKey(e => e.Id);
+
             builder.Property(e => e.Id)
-                          .ValueGeneratedNever()
-                          .HasColumnName("id");
+                .HasColumnName("id")
+                .IsRequired();
 
             builder.Property(e => e.AditionalInfo)
                 .HasMaxLength(1000)
@@ -29,8 +31,7 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Configuration
                 .HasColumnName("email");
 
             builder.Property(e => e.HasPets)
-                .HasMaxLength(255)
-                .IsUnicode(false)
+                .IsRequired()
                 .HasColumnName("has_pets");
 
             builder.Property(e => e.Name)

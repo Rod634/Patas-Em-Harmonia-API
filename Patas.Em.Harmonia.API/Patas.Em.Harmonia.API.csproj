@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Patas.Em.Harmonia.Infrastructure.Data\Patas.Em.Harmonia.Infrastructure.Data.csproj" />
     <ProjectReference Include="..\Patas.Em.Harmonia.Infrastructure\Patas.Em.Harmonia.Infrastructure.Setup.csproj" />
+    <ProjectReference Include="..\Patas.Em.Harmonia.Services\Patas.Em.Harmonia.Services.csproj" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

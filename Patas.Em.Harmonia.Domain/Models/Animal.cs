@@ -1,6 +1,6 @@
 ﻿#nullable disable
 
-namespace Patas.Em.Harmonia.Infrastructure.Data.Models
+namespace Patas.Em.Harmonia.Domain.Models
 {
     public partial class Animal
     {
@@ -9,7 +9,6 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Models
             DiseaseAnimals = new HashSet<DiseaseAnimal>();
             VaccineAnimals = new HashSet<VaccineAnimal>();
         }
-
         public int Id { get; set; }
         public string Name { get; set; }
         public string Age { get; set; }

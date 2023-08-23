@@ -1,5 +1,5 @@
 ﻿using Patas.Em.Harmonia.Infrastructure.Data.Context;
-using Patas.Em.Harmonia.Infrastructure.Data.Interfaces;
+using Patas.Em.Harmonia.Domain.Interfaces;
 
 namespace Patas.Em.Harmonia.Infrastructure.Data
 {
