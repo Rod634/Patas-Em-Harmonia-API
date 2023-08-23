@@ -61,6 +61,7 @@ namespace Patas.Em.Harmonia.Infrastructure.Setup
         private void ConfigureValidators()
         {
             Services.AddScoped<IValidator<UserData>, UserValidator>();
+            Services.AddScoped<IValidator<AnimalData>, AnimalValidator>();
         }
 
         private ApiSettings GetSettings()

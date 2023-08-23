@@ -9,10 +9,10 @@ namespace Patas.Em.Harmonia.Services
 {
     public class UserService : IUserService
     {
-        private readonly IAnimalRepository _userRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IValidator<UserData> _validator;
 
-        public UserService(IAnimalRepository userRepository, IValidator<UserData> validator)
+        public UserService(IUserRepository userRepository, IValidator<UserData> validator)
         {
             _userRepository = userRepository;
             _validator = validator;
