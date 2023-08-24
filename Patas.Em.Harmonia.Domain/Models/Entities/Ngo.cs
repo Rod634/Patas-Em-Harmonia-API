@@ -6,6 +6,7 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
 {
     public partial class Ngo
     {
+        public Ngo() {}
         public Ngo(NgoData ngo)
         {
             Name = ngo.Name;

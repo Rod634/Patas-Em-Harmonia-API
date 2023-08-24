@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Patas.Em.Harmonia.Domain.Constants;
 using Patas.Em.Harmonia.Domain.Interfaces;
 using Patas.Em.Harmonia.Domain.Models.Entities;
 using Patas.Em.Harmonia.Infrastructure.Data.Context;
@@ -29,7 +30,7 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
 
         public async Task<List<Ngo>> GetAllNGOs()
         {
-            return await _patasDBContext.Ngos.ToListAsync();
+            return await _patasDBContext.Ngos.Where(n=> n.Status.Equals(Constant.ACTIVE)).ToListAsync();
         }
 
         public async Task<Ngo> GetNGOByEmail(string email)
