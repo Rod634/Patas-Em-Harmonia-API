@@ -16,10 +16,6 @@ namespace Patas.Em.Harmonia.Domain.Validators
 
             RuleFor(x => x.Phone)
                 .Length(8, 13);
-
-            RuleFor(x => x.Phone)
-                .NotNull()
-                .Length(8, 13);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Patas.Em.Harmonia.Domain.Models.Entities
+﻿namespace Patas.Em.Harmonia.Domain.Models
 {
     public class NgoData
     {
