@@ -1,6 +1,6 @@
 ﻿namespace Patas.Em.Harmonia.Domain.Models
 {
-    public class UserBaseData
+    public class UserData
     {
         public string Name { get; set; }
         public string Email { get; set; }

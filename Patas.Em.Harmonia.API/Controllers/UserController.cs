@@ -16,7 +16,7 @@ namespace Patas.Em.Harmonia.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateUserAsync([FromBody] UserBaseData user)
+        public async Task<IActionResult> CreateUserAsync([FromBody] UserData user)
         {
             var response = await _userService.CreateUser(user);
             return response ? StatusCode(201) : StatusCode(400);
@@ -37,7 +37,7 @@ namespace Patas.Em.Harmonia.API.Controllers
         }
 
         [HttpPatch]
-        public async Task<IActionResult> ChangeUserDataAsync([FromBody] UserBaseData user)
+        public async Task<IActionResult> ChangeUserDataAsync([FromBody] UserData user)
         {
             var response = await _userService.ChangeUserData(user);
             return Ok(response);

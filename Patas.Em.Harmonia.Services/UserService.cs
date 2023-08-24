@@ -3,21 +3,22 @@ using Patas.Em.Harmonia.Domain.Constants;
 using Patas.Em.Harmonia.Domain.Exceptions;
 using Patas.Em.Harmonia.Domain.Interfaces;
 using Patas.Em.Harmonia.Domain.Models;
+using Patas.Em.Harmonia.Domain.Models.Entities;
 
 namespace Patas.Em.Harmonia.Services
 {
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        private readonly IValidator<UserBaseData> _validator;
+        private readonly IValidator<UserData> _validator;
 
-        public UserService(IUserRepository userRepository, IValidator<UserBaseData> validator)
+        public UserService(IUserRepository userRepository, IValidator<UserData> validator)
         {
             _userRepository = userRepository;
             _validator = validator;
         }
 
-        public async Task<User> ChangeUserData(UserBaseData userNewData)
+        public async Task<User> ChangeUserData(UserData userNewData)
         {
             try
             {
@@ -31,7 +32,7 @@ namespace Patas.Em.Harmonia.Services
             }
         }
 
-        public async Task<bool> CreateUser(UserBaseData user)
+        public async Task<bool> CreateUser(UserData user)
         {
             try
             {

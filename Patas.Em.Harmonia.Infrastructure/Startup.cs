@@ -6,8 +6,8 @@ using Patas.Em.Harmonia.Domain.Interfaces;
 using Patas.Em.Harmonia.Domain.Models;
 using Patas.Em.Harmonia.Domain.UI;
 using Patas.Em.Harmonia.Domain.Validators;
-using Patas.Em.Harmonia.Infrastructure.Data;
 using Patas.Em.Harmonia.Infrastructure.Data.Context;
+using Patas.Em.Harmonia.Infrastructure.Data.Repositories;
 using Patas.Em.Harmonia.Services;
 
 namespace Patas.Em.Harmonia.Infrastructure.Setup
@@ -37,8 +37,10 @@ namespace Patas.Em.Harmonia.Infrastructure.Setup
                     .AddScoped<PatasDBContext>()
                     .AddScoped<IRepositoryBase, RepositoryBase>()
                     .AddScoped<IUserRepository, UserRepository>()
-                    .AddScoped<IUserService, UserService>();
-            
+                    .AddScoped<IAnimalRepository, AnimalRepository>()
+                    .AddScoped<IUserService, UserService>()
+                    .AddScoped<IAnimalService, AnimalService>();
+
             ConfigureValidators();
             AddDbContext();
         }
@@ -58,7 +60,8 @@ namespace Patas.Em.Harmonia.Infrastructure.Setup
 
         private void ConfigureValidators()
         {
-            Services.AddScoped<IValidator<UserBaseData>, UserValidator>();
+            Services.AddScoped<IValidator<UserData>, UserValidator>();
+            Services.AddScoped<IValidator<AnimalData>, AnimalValidator>();
         }
 
         private ApiSettings GetSettings()

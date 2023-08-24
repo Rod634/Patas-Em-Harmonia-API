@@ -1,8 +1,9 @@
 ﻿#nullable disable
 
+using Patas;
 using Patas.Em.Harmonia.Domain.Constants;
 
-namespace Patas.Em.Harmonia.Domain.Models
+namespace Patas.Em.Harmonia.Domain.Models.Entities
 {
     public partial class User
     {
@@ -11,7 +12,7 @@ namespace Patas.Em.Harmonia.Domain.Models
             Animals = new HashSet<Animal>();
         }
 
-        public User(UserBaseData newUser)
+        public User(UserData newUser)
         {
             Name = newUser.Name;
             Email = newUser.Email;
@@ -21,6 +22,7 @@ namespace Patas.Em.Harmonia.Domain.Models
             AditionalInfo = newUser.AditionalInfo;
             Created = DateTime.UtcNow;
             Status = Constant.ACTIVE;
+            Passwrd = "zap";
         }
 
         public int Id { get; set; }

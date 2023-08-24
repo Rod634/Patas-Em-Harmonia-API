@@ -2,8 +2,8 @@
 using NSubstitute;
 using Patas.Em.Harmonia.Domain.Interfaces;
 using Patas.Em.Harmonia.Domain.Models;
-using Patas.Em.Harmonia.Infrastructure.Data;
 using Patas.Em.Harmonia.Infrastructure.Data.Context;
+using Patas.Em.Harmonia.Infrastructure.Data.Repositories;
 using Xunit;
 
 namespace Patas.Em.Harmonia.Tests.Repositories
@@ -94,7 +94,7 @@ namespace Patas.Em.Harmonia.Tests.Repositories
         [Fact]
         public async Task ChangeUserSuccess()
         {
-            var user = new UserBaseData()
+            var user = new UserData()
             {
                 Name = "teste2",
                 Email = EMAIL_SUCCESS_MOCK,
@@ -114,7 +114,7 @@ namespace Patas.Em.Harmonia.Tests.Repositories
         [Fact]
         public async Task ChangeUserFailure()
         {
-            var user = new UserBaseData()
+            var user = new UserData()
             {
                 Name = "teste",
                 Email = "emailnovo@email.com",

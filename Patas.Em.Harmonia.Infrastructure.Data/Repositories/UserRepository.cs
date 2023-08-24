@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Patas.Em.Harmonia.Domain.Interfaces;
 using Patas.Em.Harmonia.Domain.Models;
+using Patas.Em.Harmonia.Domain.Models.Entities;
 using Patas.Em.Harmonia.Infrastructure.Data.Context;
 
 
-namespace Patas.Em.Harmonia.Infrastructure.Data
+namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
 {
     public class UserRepository : IUserRepository
     {
@@ -17,11 +18,11 @@ namespace Patas.Em.Harmonia.Infrastructure.Data
             _patasDBContext = patasDBContext;
         }
 
-        public async Task<User> ChangeUserData(UserBaseData userNewData)
+        public async Task<User> ChangeUserData(UserData userNewData)
         {
             var user = await GetUserByMail(userNewData.Email);
 
-            if(user == null)
+            if (user == null)
             {
                 return new User();
             }
