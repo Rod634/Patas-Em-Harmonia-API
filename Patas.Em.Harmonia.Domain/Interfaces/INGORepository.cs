@@ -15,5 +15,11 @@ namespace Patas.Em.Harmonia.Domain.Interfaces
         /// </summary>
         /// <returns>A List with NGO's</returns>
         Task<List<Ngo>> GetAllNGOs();
+
+        /// <summary>
+        /// Get NGO By email
+        /// </summary>
+        /// <returns>A NGO's by email</returns>
+        Task<Ngo> GetNGOByEmail(string email);
     }
 }
