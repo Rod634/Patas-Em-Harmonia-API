@@ -39,9 +39,15 @@ namespace Patas.Em.Harmonia.Infrastructure.Setup
                     .AddScoped<IUserRepository, UserRepository>()
                     .AddScoped<IAnimalRepository, AnimalRepository>()
                     .AddScoped<INGORepository, NGORepository>()
+                    .AddScoped<IVaccineRepository, VaccineRepository>()
+                    .AddScoped<IStatusRepository, StatusRepository>()
+                    .AddScoped<IDiseaseRepository, DiseaseRepository>()
                     .AddScoped<IUserService, UserService>()
                     .AddScoped<IAnimalService, AnimalService>()
-                    .AddScoped<INGOService, NGOService>();
+                    .AddScoped<INGOService, NGOService>()
+                    .AddScoped<IVaccineService, VaccineService>()
+                    .AddScoped<IStatusService, StatusService>()
+                    .AddScoped<IDiseaseService, DiseaseService>();
 
             ConfigureValidators();
             AddDbContext();
