@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="VaccineService.cs~RF3ab1a4c2.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidator" Version="2.0.4" />
   </ItemGroup>
 
