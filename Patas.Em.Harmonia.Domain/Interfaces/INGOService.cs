@@ -3,7 +3,7 @@ using Patas.Em.Harmonia.Domain.Models.Entities;
 
 namespace Patas.Em.Harmonia.Domain.Interfaces
 {
-    public interface INGOService
+    public interface INgoService
     {
         /// <summary>
         /// Create a NGO

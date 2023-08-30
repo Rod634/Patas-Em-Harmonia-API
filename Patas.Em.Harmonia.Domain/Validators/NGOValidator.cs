@@ -3,9 +3,9 @@ using Patas.Em.Harmonia.Domain.Models;
 
 namespace Patas.Em.Harmonia.Domain.Validators
 {
-    public class NGOValidator : AbstractValidator<NgoData>
+    public class NgoValidator : AbstractValidator<NgoData>
     {
-        public NGOValidator()
+        public NgoValidator()
         {
             RuleFor(x => x.Name)
                 .NotNull()

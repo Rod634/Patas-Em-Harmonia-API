@@ -8,9 +8,9 @@ namespace Patas.Em.Harmonia.API.Controllers
     [Route("v1/[controller]")]
     public class NgoController : ControllerBase
     {
-        private readonly INGOService _nGOService;
+        private readonly INgoService _nGOService;
 
-        public NgoController(INGOService nGOService)
+        public NgoController(INgoService nGOService)
         {
             _nGOService = nGOService;
         }

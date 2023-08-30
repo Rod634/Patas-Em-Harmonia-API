@@ -3,7 +3,7 @@ using Patas.Em.Harmonia.Domain.Interfaces;
 
 namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
 {
-    public class RepositoryBase : IRepositoryBase
+    public class RepositoryBase : IRepositoryBase 
     {
         private readonly PatasDBContext _patasDBContext;
 

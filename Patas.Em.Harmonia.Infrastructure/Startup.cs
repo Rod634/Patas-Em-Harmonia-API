@@ -38,13 +38,13 @@ namespace Patas.Em.Harmonia.Infrastructure.Setup
                     .AddScoped<IRepositoryBase, RepositoryBase>()
                     .AddScoped<IUserRepository, UserRepository>()
                     .AddScoped<IAnimalRepository, AnimalRepository>()
-                    .AddScoped<INGORepository, NGORepository>()
+                    .AddScoped<INgoRepository, NgoRepository>()
                     .AddScoped<IVaccineRepository, VaccineRepository>()
                     .AddScoped<IStatusRepository, StatusRepository>()
                     .AddScoped<IDiseaseRepository, DiseaseRepository>()
                     .AddScoped<IUserService, UserService>()
                     .AddScoped<IAnimalService, AnimalService>()
-                    .AddScoped<INGOService, NGOService>()
+                    .AddScoped<INgoService, NgoService>()
                     .AddScoped<IVaccineService, VaccineService>()
                     .AddScoped<IStatusService, StatusService>()
                     .AddScoped<IDiseaseService, DiseaseService>();
@@ -70,7 +70,7 @@ namespace Patas.Em.Harmonia.Infrastructure.Setup
         {
             Services.AddScoped<IValidator<UserData>, UserValidator>();
             Services.AddScoped<IValidator<AnimalData>, AnimalValidator>();
-            Services.AddScoped<IValidator<NgoData>, NGOValidator>();
+            Services.AddScoped<IValidator<NgoData>, NgoValidator>();
         }
 
         private ApiSettings GetSettings()

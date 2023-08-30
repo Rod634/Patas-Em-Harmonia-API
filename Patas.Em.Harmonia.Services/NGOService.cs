@@ -6,12 +6,12 @@ using Patas.Em.Harmonia.Domain.Models.Entities;
 
 namespace Patas.Em.Harmonia.Services
 {
-    public class NGOService : INGOService
+    public class NgoService : INgoService
     {
-        private readonly INGORepository _nGORepository;
+        private readonly INgoRepository _nGORepository;
         private readonly IValidator<NgoData> _validator;
 
-        public NGOService(INGORepository nGORepository, IValidator<NgoData> validator)
+        public NgoService(INgoRepository nGORepository, IValidator<NgoData> validator)
         {
             _nGORepository = nGORepository;
             _validator = validator;
@@ -24,7 +24,7 @@ namespace Patas.Em.Harmonia.Services
                 _validator.ValidateAndThrow(ngo);
 
                 var newNgo = new Ngo(ngo);
-                var isSuccess = await _nGORepository.CreateNGO(newNgo);
+                var isSuccess = await _nGORepository.CreateNgo(newNgo);
 
                 return isSuccess;
             }
@@ -36,7 +36,7 @@ namespace Patas.Em.Harmonia.Services
 
         public Task<List<Ngo>> GetAllNgos()
         {
-            return _nGORepository.GetAllNGOs();
+            return _nGORepository.GetAllNgos();
         }
     }
 }
