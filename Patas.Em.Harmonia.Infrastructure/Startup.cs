@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Patas.Em.Harmonia.Domain.Interfaces;
-using Patas.Em.Harmonia.Domain.Models;
+using Patas.Em.Harmonia.Domain.Models.DTO;
 using Patas.Em.Harmonia.Domain.UI;
 using Patas.Em.Harmonia.Domain.Validators;
 using Patas.Em.Harmonia.Infrastructure.Data.Context;
@@ -68,9 +68,9 @@ namespace Patas.Em.Harmonia.Infrastructure.Setup
 
         private void ConfigureValidators()
         {
-            Services.AddScoped<IValidator<UserData>, UserValidator>();
-            Services.AddScoped<IValidator<AnimalData>, AnimalValidator>();
-            Services.AddScoped<IValidator<NgoData>, NgoValidator>();
+            Services.AddScoped<IValidator<UserDto>, UserValidator>();
+            Services.AddScoped<IValidator<AnimalDto>, AnimalValidator>();
+            Services.AddScoped<IValidator<NgoDto>, NgoValidator>();
         }
 
         private ApiSettings GetSettings()

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Patas.Em.Harmonia.Domain.Interfaces;
-using Patas.Em.Harmonia.Domain.Models;
+using Patas.Em.Harmonia.Domain.Models.DTO;
 
 namespace Patas.Em.Harmonia.API.Controllers
 {
@@ -16,7 +16,7 @@ namespace Patas.Em.Harmonia.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateAnimalAsync([FromBody] AnimalData animal)
+        public async Task<IActionResult> CreateAnimalAsync([FromBody] AnimalDto animal)
         {
             var response = await _animalService.CreateAnimal(animal);
             return response ? StatusCode(201) : StatusCode(400);

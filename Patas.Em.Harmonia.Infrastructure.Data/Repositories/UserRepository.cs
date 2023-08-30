@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Patas.Em.Harmonia.Domain.Interfaces;
-using Patas.Em.Harmonia.Domain.Models;
+using Patas.Em.Harmonia.Domain.Models.DTO;
 using Patas.Em.Harmonia.Domain.Models.Entities;
 using Patas.Em.Harmonia.Infrastructure.Data.Context;
 
@@ -18,7 +18,7 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
             _patasDBContext = patasDBContext;
         }
 
-        public async Task<User> ChangeUserData(UserData userNewData)
+        public async Task<User> ChangeUserData(UserDto userNewData)
         {
             var user = await GetUserByMail(userNewData.Email);
 

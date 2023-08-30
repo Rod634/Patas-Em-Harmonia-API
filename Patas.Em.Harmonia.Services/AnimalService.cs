@@ -2,7 +2,7 @@
 using Patas.Em.Harmonia.Domain.Constants;
 using Patas.Em.Harmonia.Domain.Exceptions;
 using Patas.Em.Harmonia.Domain.Interfaces;
-using Patas.Em.Harmonia.Domain.Models;
+using Patas.Em.Harmonia.Domain.Models.DTO;
 using Patas.Em.Harmonia.Domain.Models.Entities;
 
 namespace Patas.Em.Harmonia.Services
@@ -10,9 +10,9 @@ namespace Patas.Em.Harmonia.Services
     public class AnimalService : IAnimalService
     {
         private readonly IAnimalRepository _animalRepository;
-        private readonly IValidator<AnimalData> _validator;
+        private readonly IValidator<AnimalDto> _validator;
 
-        public AnimalService(IAnimalRepository animalRepository, IValidator<AnimalData> validator)
+        public AnimalService(IAnimalRepository animalRepository, IValidator<AnimalDto> validator)
         {
             _animalRepository = animalRepository;
             _validator = validator;
@@ -29,13 +29,13 @@ namespace Patas.Em.Harmonia.Services
             return isSuccess;
         }
 
-        public async Task<bool> CreateAnimal(AnimalData animalRequest)
+        public async Task<bool> CreateAnimal(AnimalDto animalRequest)
         {
             try
             {
                 _validator.ValidateAndThrow(animalRequest);
 
-                var animal = new Animal(animalRequest);
+                var animal = (Animal)animalRequest;
                 var isSuccess = await _animalRepository.CreateAnimal(animal);
                 return isSuccess;
             }

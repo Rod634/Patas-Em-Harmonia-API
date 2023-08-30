@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using Patas.Em.Harmonia.Domain.Models;
+using Patas.Em.Harmonia.Domain.Models.DTO;
 
 namespace Patas.Em.Harmonia.Domain.Validators
 {
-    public class AnimalValidator : AbstractValidator<AnimalData>
+    public class AnimalValidator : AbstractValidator<AnimalDto>
     {
         public AnimalValidator()
         {

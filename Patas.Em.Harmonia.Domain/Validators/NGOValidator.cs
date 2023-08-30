@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using Patas.Em.Harmonia.Domain.Models;
+using Patas.Em.Harmonia.Domain.Models.DTO;
 
 namespace Patas.Em.Harmonia.Domain.Validators
 {
-    public class NgoValidator : AbstractValidator<NgoData>
+    public class NgoValidator : AbstractValidator<NgoDto>
     {
         public NgoValidator()
         {

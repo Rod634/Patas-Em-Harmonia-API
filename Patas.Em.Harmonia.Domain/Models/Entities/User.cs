@@ -2,6 +2,7 @@
 
 using Patas;
 using Patas.Em.Harmonia.Domain.Constants;
+using Patas.Em.Harmonia.Domain.Models.DTO;
 
 namespace Patas.Em.Harmonia.Domain.Models.Entities
 {
@@ -12,17 +13,20 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
             Animals = new HashSet<Animal>();
         }
 
-        public User(UserData newUser)
+        public static explicit operator User(UserDto newUser)
         {
-            Name = newUser.Name;
-            Email = newUser.Email;
-            Phone = newUser.Phone;
-            HasPets = newUser.HasPets;
-            NgoName = newUser.NgoName;
-            AditionalInfo = newUser.AditionalInfo;
-            Created = DateTime.UtcNow;
-            Status = Constant.ACTIVE;
-            Passwrd = "zap";
+            return new()
+            {
+                Name = newUser.Name,
+                Email = newUser.Email,
+                Phone = newUser.Phone,
+                HasPets = newUser.HasPets,
+                NgoName = newUser.NgoName,
+                AditionalInfo = newUser.AditionalInfo,
+                Created = DateTime.UtcNow,
+                Status = Constant.ACTIVE,
+                Passwrd = "zap"
+            };
         }
 
         public int Id { get; set; }

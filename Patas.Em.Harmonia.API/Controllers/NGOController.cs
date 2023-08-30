@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Patas.Em.Harmonia.Domain.Interfaces;
-using Patas.Em.Harmonia.Domain.Models;
+using Patas.Em.Harmonia.Domain.Models.DTO;
 
 namespace Patas.Em.Harmonia.API.Controllers
 {
@@ -16,7 +16,7 @@ namespace Patas.Em.Harmonia.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateNgoAsync([FromBody] NgoData ngo)
+        public async Task<IActionResult> CreateNgoAsync([FromBody] NgoDto ngo)
         {
             var response = await _nGOService.CreateNgo(ngo);
             return response ? StatusCode(201) : StatusCode(400);
