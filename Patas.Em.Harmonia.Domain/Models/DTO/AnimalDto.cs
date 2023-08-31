@@ -12,6 +12,6 @@
         public string LatitudeLongitude { get; set; }
         public string Neighborhood { get; set; }
         public string Status { get; set; }
-        public int IdUser { get; set; }
+        public string IdUser { get; set; }
     }
 }

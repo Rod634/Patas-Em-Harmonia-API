@@ -21,7 +21,7 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
                 Email = newUser.Email,
                 Phone = newUser.Phone,
                 HasPets = newUser.HasPets,
-                NgoName = newUser.NgoName,
+                NgoId = newUser.NgoId,
                 AditionalInfo = newUser.AditionalInfo,
                 Created = DateTime.UtcNow,
                 Status = Constant.ACTIVE,
@@ -29,13 +29,13 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
             };
         }
 
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Passwrd { get; set; }
         public bool HasPets { get; set; }
-        public string NgoName { get; set; }
+        public string NgoId { get; set; }
         public string AditionalInfo { get; set; }
         public string Status { get; set; }
         public DateTime? Created { get; set; }

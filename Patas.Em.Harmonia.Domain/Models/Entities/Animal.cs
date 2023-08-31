@@ -33,7 +33,7 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
             };
         }
 
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
         public string Race { get; set; }
@@ -45,7 +45,7 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
         public string Neighborhood { get; set; }
         public string Status { get; set; }
         public DateTime Created { get; set; }
-        public int IdUser { get; set; }
+        public string IdUser { get; set; }
 
         public virtual User IdUserNavigation { get; set; }
         public virtual ICollection<DiseaseAnimal> DiseaseAnimals { get; set; }

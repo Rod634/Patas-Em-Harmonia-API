@@ -40,10 +40,10 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Configuration
                 .IsUnicode(false)
                 .HasColumnName("name");
 
-            builder.Property(e => e.NgoName)
-                .HasMaxLength(255)
-                .IsUnicode(false)
-                .HasColumnName("NGO_name");
+            builder.Property(e => e.NgoId)
+                .HasMaxLength(126)
+                .IsUnicode(true)
+                .HasColumnName("id_ngo");
 
             builder.Property(e => e.Passwrd)
                 .IsRequired()
