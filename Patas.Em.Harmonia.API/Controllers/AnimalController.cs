@@ -23,7 +23,7 @@ namespace Patas.Em.Harmonia.API.Controllers
         }
 
         [HttpPost("change-status")]
-        public async Task<IActionResult> ChangeAnimalStatusAsync(string status, int animalId)
+        public async Task<IActionResult> ChangeAnimalStatusAsync(string status, string animalId)
         {
             var response = await _animalService.ChangeAnimalStatus(status, animalId);
             return response ? Ok() : NoContent();
@@ -37,7 +37,7 @@ namespace Patas.Em.Harmonia.API.Controllers
         }
 
         [HttpGet("user")]
-        public async Task<IActionResult> GetAllAnimalsByUserAsync([FromQuery] int userId)
+        public async Task<IActionResult> GetAllAnimalsByUserAsync([FromQuery] string userId)
         {
             var response = await _animalService.GetAnimalsFromAUser(userId);
             return Ok(response);

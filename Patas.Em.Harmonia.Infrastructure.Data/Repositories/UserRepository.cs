@@ -28,7 +28,7 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
             }
 
             user.Name = userNewData.Name;
-            user.NgoName = userNewData.NgoName;
+            user.NgoId = userNewData.NgoId;
             user.HasPets = userNewData.HasPets;
             user.AditionalInfo = userNewData.AditionalInfo;
             user.Email = userNewData.Email;

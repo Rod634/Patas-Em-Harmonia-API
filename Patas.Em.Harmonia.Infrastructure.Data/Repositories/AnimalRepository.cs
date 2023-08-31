@@ -17,9 +17,9 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
             _patasDBContext = patasDBContext;
         }
 
-        public async Task<bool> ChangeAnAnimalStatus(string status, int animalId)
+        public async Task<bool> ChangeAnAnimalStatus(string status, string animalId)
         {
-            var animal = await _patasDBContext.Animals.FirstOrDefaultAsync(a => a.Id == animalId);
+            var animal = await _patasDBContext.Animals.FirstOrDefaultAsync(a => a.Id.Equals(animalId));
             if(animal is not null)
             {
                 animal.Status = status;
@@ -47,9 +47,9 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
             return await _patasDBContext.Animals.ToListAsync();
         }
 
-        public async Task<List<Animal>> GetAllAnimalsFromAnUser(int idUser)
+        public async Task<List<Animal>> GetAllAnimalsFromAnUser(string idUser)
         {
-            var animals = await _patasDBContext.Animals.Where(x => x.IdUser == idUser && x.Status == Constant.ACTIVE).ToListAsync();
+            var animals = await _patasDBContext.Animals.Where(x => x.IdUser.Equals(idUser) && x.Status == Constant.ACTIVE).ToListAsync();
             return animals;
         }
     }

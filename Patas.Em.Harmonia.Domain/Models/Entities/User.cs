@@ -17,6 +17,7 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
         {
             return new()
             {
+                Id = Guid.NewGuid().ToString(),
                 Name = newUser.Name,
                 Email = newUser.Email,
                 Phone = newUser.Phone,
