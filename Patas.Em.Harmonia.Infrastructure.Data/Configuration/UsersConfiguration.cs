@@ -51,6 +51,11 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Configuration
                 .IsUnicode(false)
                 .HasColumnName("passwrd");
 
+            builder.Property(e => e.PhotoUrl)
+               .HasMaxLength(1000)
+               .IsUnicode(false)
+               .HasColumnName("photo_url");
+
             builder.Property(e => e.Phone)
                 .HasMaxLength(255)
                 .IsUnicode(false)

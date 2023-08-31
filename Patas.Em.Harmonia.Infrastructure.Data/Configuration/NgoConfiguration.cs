@@ -30,6 +30,11 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Configuration
                 .IsUnicode(false)
                 .HasColumnName("email");
 
+            builder.Property(e => e.PhotoUrl)
+               .HasMaxLength(1000)
+               .IsUnicode(false)
+               .HasColumnName("photo_url");
+
             builder.Property(e => e.LatitudeLongitude)
                 .HasMaxLength(600)
                 .IsUnicode(false)
