@@ -73,6 +73,11 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Configuration
                 .IsUnicode(false)
                 .HasColumnName("status");
 
+            builder.Property(e => e.NgoId)
+                .HasMaxLength(126)
+                .IsUnicode(true)
+                .HasColumnName("id_ngo");
+
             builder.HasOne(d => d.IdUserNavigation)
                 .WithMany(p => p.Animals)
                 .HasForeignKey(d => d.IdUser)

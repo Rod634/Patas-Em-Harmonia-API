@@ -13,5 +13,6 @@
         public string Neighborhood { get; set; }
         public string Status { get; set; }
         public string IdUser { get; set; }
+        public string NgoId { get; set; }
     }
 }
