@@ -63,14 +63,14 @@ namespace Patas.Em.Harmonia.Services
             return await _animalRepository.GetAllAnimals();
         }
 
-        public async Task<List<Animal>> GetAnimalsFromAUser(string userId)
+        public async Task<List<Animal>> GetAnimalsFromAUser(string userId, string ngoId)
         {
             if (string.IsNullOrEmpty(userId))
             {
                 throw new ArgumentException(Constant.STATUS_ID_EMPTY_WARNING);
             }
 
-            var animals = await _animalRepository.GetAllAnimalsFromAnUser(userId);
+            var animals = await _animalRepository.GetAllAnimalsFromAnUser(userId, ngoId);
             return animals;
         }
 

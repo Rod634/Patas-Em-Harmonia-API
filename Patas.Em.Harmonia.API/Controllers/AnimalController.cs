@@ -37,9 +37,9 @@ namespace Patas.Em.Harmonia.API.Controllers
         }
 
         [HttpGet("user")]
-        public async Task<IActionResult> GetAllAnimalsByUserAsync([FromQuery] string userId)
+        public async Task<IActionResult> GetAllAnimalsByUserAsync([FromQuery] string userId, string ngoId)
         {
-            var response = await _animalService.GetAnimalsFromAUser(userId);
+            var response = await _animalService.GetAnimalsFromAUser(userId, ngoId);
             return Ok(response);
         }
 
