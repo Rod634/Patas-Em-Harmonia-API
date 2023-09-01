@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Patas.Em.Harmonia.Domain.Interfaces;
+using Patas.Em.Harmonia.Domain.Models.DTO;
 using Patas.Em.Harmonia.Domain.Models.Entities;
 using Patas.Em.Harmonia.Infrastructure.Data.Context;
 
@@ -28,9 +29,9 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
             }
         }
 
-        public Task<List<string>> GetAllDiseaseNames()
+        public Task<List<NameIdDto>> GetAllDiseaseNames()
         {
-            return _patasDBContext.Diseases.Select(d => d.Name).ToListAsync();
+            return _patasDBContext.Diseases.Select(d => new NameIdDto() { Id = d.Id, Name = d.Name }).ToListAsync();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Patas.Em.Harmonia.Domain.Interfaces
+﻿using Patas.Em.Harmonia.Domain.Models.DTO;
+
+namespace Patas.Em.Harmonia.Domain.Interfaces
 {
     public interface IDiseaseService
     {
@@ -6,6 +8,6 @@
         /// Get all Disease names
         /// </summary>
         /// <returns>Returns a list with all Disease names</returns>
-        Task<List<string>> GetAllDiseaseNames();
+        Task<List<NameIdDto>> GetAllDiseaseNames();
     }
 }

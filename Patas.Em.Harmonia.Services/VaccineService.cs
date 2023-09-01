@@ -1,4 +1,5 @@
 ﻿using Patas.Em.Harmonia.Domain.Interfaces;
+using Patas.Em.Harmonia.Domain.Models.DTO;
 
 namespace Patas.Em.Harmonia.Services
 {
@@ -11,7 +12,7 @@ namespace Patas.Em.Harmonia.Services
             _vaccineRepository = vaccineRepository;
         }
 
-        public Task<List<string>> GetAllVaccines()
+        public Task<List<NameIdDto>> GetAllVaccines()
         {
             return _vaccineRepository.GetAllVaccines();
         }

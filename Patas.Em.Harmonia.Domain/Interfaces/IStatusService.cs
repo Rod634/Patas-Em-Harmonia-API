@@ -1,4 +1,6 @@
 ﻿
+using Patas.Em.Harmonia.Domain.Models.DTO;
+
 namespace Patas.Em.Harmonia.Domain.Interfaces
 {
     public interface IStatusService
@@ -7,6 +9,6 @@ namespace Patas.Em.Harmonia.Domain.Interfaces
         /// Get all status names
         /// </summary>
         /// <returns>Returns a list with all status names</returns>
-        Task<List<string>> GetAllStatus();
+        Task<List<NameIdDto>> GetAllStatus();
     }
 }
