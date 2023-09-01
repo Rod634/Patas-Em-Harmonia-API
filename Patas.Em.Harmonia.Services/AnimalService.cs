@@ -18,9 +18,9 @@ namespace Patas.Em.Harmonia.Services
             _validator = validator;
         }
 
-        public async Task<bool> ChangeAnimalStatus(string status, int animalId)
+        public async Task<bool> ChangeAnimalStatus(string status, string animalId)
         {
-            if (string.IsNullOrEmpty(status) || animalId < 0)
+            if (string.IsNullOrEmpty(status) || string.IsNullOrEmpty(animalId))
             {
                 throw new ArgumentException(Constant.STATUS_ID_EMPTY_WARNING);
             }
@@ -50,9 +50,9 @@ namespace Patas.Em.Harmonia.Services
             return await _animalRepository.GetAllAnimals();
         }
 
-        public async Task<List<Animal>> GetAnimalsFromAUser(int userId)
+        public async Task<List<Animal>> GetAnimalsFromAUser(string userId)
         {
-            if (userId < 0)
+            if (string.IsNullOrEmpty(userId))
             {
                 throw new ArgumentException(Constant.STATUS_ID_EMPTY_WARNING);
             }

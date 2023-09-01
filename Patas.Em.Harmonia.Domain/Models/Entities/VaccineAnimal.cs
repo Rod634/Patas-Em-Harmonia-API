@@ -6,8 +6,8 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
 {
     public partial class VaccineAnimal
     {
-        public int Id { get; set; }
-        public int IdAnimal { get; set; }
+        public string Id { get; set; }
+        public string IdAnimal { get; set; }
         public int IdVaccine { get; set; }
         public DateTime DtVaccine { get; set; }
 

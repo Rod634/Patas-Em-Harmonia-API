@@ -15,7 +15,8 @@ namespace Patas.Em.Harmonia.Domain.Validators
                 .GreaterThan(0);
 
             RuleFor(x => x.IdUser)
-             .GreaterThan(0);
+             .NotNull()
+             .Length(20, 128);
 
             RuleFor(x => x.Race)
                 .NotNull()

@@ -14,13 +14,13 @@ namespace Patas.Em.Harmonia.Domain.Interfaces
         /// Get all animals from an user
         /// </summary>
         /// <returns>Returns a list of animals</returns>
-        Task<List<Animal>> GetAllAnimalsFromAnUser(int idUser);
+        Task<List<Animal>> GetAllAnimalsFromAnUser(string idUser);
 
         /// <summary>
         /// Change An animal status
         /// </summary>
         /// <returns>A bool that indicates success or not</returns>
-        Task<bool> ChangeAnAnimalStatus(string status, int animalId);
+        Task<bool> ChangeAnAnimalStatus(string status, string animalId);
 
         /// <summary>
         /// Create an Animal

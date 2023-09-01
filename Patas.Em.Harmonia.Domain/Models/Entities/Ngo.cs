@@ -13,6 +13,7 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
         {
             return new()
             {
+                Id = Guid.NewGuid().ToString(),
                 Name = ngo.Name,
                 Services = ngo.Services,
                 Phone = ngo.Phone,
@@ -25,7 +26,7 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
             };
         }
 
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Services { get; set; }
         public string Phone { get; set; }

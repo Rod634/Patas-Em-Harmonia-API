@@ -1,6 +1,5 @@
 ﻿#nullable disable
 
-using Patas;
 using Patas.Em.Harmonia.Domain.Constants;
 using Patas.Em.Harmonia.Domain.Models.DTO;
 
@@ -18,6 +17,7 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
         {
             return new()
             {
+                Id = Guid.NewGuid().ToString(),
                 Name = animal.Name,
                 Age = animal.Age,
                 Race = animal.Race,
@@ -29,11 +29,12 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
                 Neighborhood = animal.Neighborhood,
                 Status = Constant.ACTIVE,
                 Created = DateTime.UtcNow,
-                IdUser = animal.IdUser
+                IdUser = animal.IdUser,
+                NgoId = animal.NgoId
             };
         }
 
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
         public string Race { get; set; }
@@ -45,7 +46,8 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
         public string Neighborhood { get; set; }
         public string Status { get; set; }
         public DateTime Created { get; set; }
-        public int IdUser { get; set; }
+        public string IdUser { get; set; }
+        public string NgoId { get; set; }
 
         public virtual User IdUserNavigation { get; set; }
         public virtual ICollection<DiseaseAnimal> DiseaseAnimals { get; set; }
