@@ -2,6 +2,7 @@
 
 using Patas;
 using Patas.Em.Harmonia.Domain.Constants;
+using Patas.Em.Harmonia.Domain.Models.DTO;
 
 namespace Patas.Em.Harmonia.Domain.Models.Entities
 {
@@ -13,20 +14,23 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
             VaccineAnimals = new HashSet<VaccineAnimal>();
         }
 
-        public Animal(AnimalData animal)
+        public static explicit operator Animal(AnimalDto animal)
         {
-            Name = animal.Name;
-            Age = animal.Age;
-            Race = animal.Race;
-            Species = animal.Species;
-            Gender = animal.Gender;
-            Errant = animal.Errant;
-            PhotoUrl = animal.PhotoUrl;
-            LatitudeLongitude = animal.LatitudeLongitude;
-            Neighborhood = animal.Neighborhood;
-            Status = Constant.ACTIVE;
-            Created = DateTime.UtcNow;
-            IdUser = animal.IdUser;
+            return new()
+            {
+                Name = animal.Name,
+                Age = animal.Age,
+                Race = animal.Race,
+                Species = animal.Species,
+                Gender = animal.Gender,
+                Errant = animal.Errant,
+                PhotoUrl = animal.PhotoUrl,
+                LatitudeLongitude = animal.LatitudeLongitude,
+                Neighborhood = animal.Neighborhood,
+                Status = Constant.ACTIVE,
+                Created = DateTime.UtcNow,
+                IdUser = animal.IdUser
+            };
         }
 
         public int Id { get; set; }

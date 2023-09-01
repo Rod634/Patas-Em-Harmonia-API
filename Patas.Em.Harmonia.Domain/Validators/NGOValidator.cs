@@ -1,11 +1,11 @@
 ﻿using FluentValidation;
-using Patas.Em.Harmonia.Domain.Models;
+using Patas.Em.Harmonia.Domain.Models.DTO;
 
 namespace Patas.Em.Harmonia.Domain.Validators
 {
-    public class NGOValidator : AbstractValidator<NgoData>
+    public class NgoValidator : AbstractValidator<NgoDto>
     {
-        public NGOValidator()
+        public NgoValidator()
         {
             RuleFor(x => x.Name)
                 .NotNull()

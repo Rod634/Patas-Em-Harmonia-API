@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Patas.Em.Harmonia.Domain.Interfaces;
-using Patas.Em.Harmonia.Domain.Models;
+using Patas.Em.Harmonia.Domain.Models.DTO;
 
 namespace Patas.Em.Harmonia.API.Controllers
 {
@@ -16,7 +16,7 @@ namespace Patas.Em.Harmonia.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateUserAsync([FromBody] UserData user)
+        public async Task<IActionResult> CreateUserAsync([FromBody] UserDto user)
         {
             var response = await _userService.CreateUser(user);
             return response ? StatusCode(201) : StatusCode(400);
@@ -37,7 +37,7 @@ namespace Patas.Em.Harmonia.API.Controllers
         }
 
         [HttpPatch]
-        public async Task<IActionResult> ChangeUserDataAsync([FromBody] UserData user)
+        public async Task<IActionResult> ChangeUserDataAsync([FromBody] UserDto user)
         {
             var response = await _userService.ChangeUserData(user);
             return Ok(response);

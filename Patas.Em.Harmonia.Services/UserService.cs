@@ -2,7 +2,7 @@
 using Patas.Em.Harmonia.Domain.Constants;
 using Patas.Em.Harmonia.Domain.Exceptions;
 using Patas.Em.Harmonia.Domain.Interfaces;
-using Patas.Em.Harmonia.Domain.Models;
+using Patas.Em.Harmonia.Domain.Models.DTO;
 using Patas.Em.Harmonia.Domain.Models.Entities;
 
 namespace Patas.Em.Harmonia.Services
@@ -10,15 +10,15 @@ namespace Patas.Em.Harmonia.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        private readonly IValidator<UserData> _validator;
+        private readonly IValidator<UserDto> _validator;
 
-        public UserService(IUserRepository userRepository, IValidator<UserData> validator)
+        public UserService(IUserRepository userRepository, IValidator<UserDto> validator)
         {
             _userRepository = userRepository;
             _validator = validator;
         }
 
-        public async Task<User> ChangeUserData(UserData userNewData)
+        public async Task<User> ChangeUserData(UserDto userNewData)
         {
             try
             {
@@ -32,13 +32,13 @@ namespace Patas.Em.Harmonia.Services
             }
         }
 
-        public async Task<bool> CreateUser(UserData user)
+        public async Task<bool> CreateUser(UserDto user)
         {
             try
             {
                 _validator.ValidateAndThrow(user);
 
-                var newUser = new User(user);
+                var newUser = (User)user;
                 var isSuccess = await _userRepository.CreateUser(newUser);
 
                 return isSuccess;

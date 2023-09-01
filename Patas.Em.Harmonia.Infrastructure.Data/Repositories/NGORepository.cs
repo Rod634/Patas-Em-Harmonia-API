@@ -6,20 +6,20 @@ using Patas.Em.Harmonia.Infrastructure.Data.Context;
 
 namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
 {
-    public class NGORepository : INGORepository
+    public class NgoRepository : INgoRepository
     {
         private readonly IRepositoryBase _repositoryBase;
         private readonly PatasDBContext _patasDBContext;
 
-        public NGORepository(IRepositoryBase repositoryBase, PatasDBContext patasDBContext)
+        public NgoRepository(IRepositoryBase repositoryBase, PatasDBContext patasDBContext)
         {
             _repositoryBase = repositoryBase;
             _patasDBContext = patasDBContext;
         }
 
-        public async Task<bool> CreateNGO(Ngo ngo)
+        public async Task<bool> CreateNgo(Ngo ngo)
         {
-            var databaseNgo = await GetNGOByEmail(ngo.Email);
+            var databaseNgo = await GetNgoByEmail(ngo.Email);
             if (databaseNgo != null)
             {
                 return false;
@@ -28,12 +28,12 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
             return true;
         }
 
-        public async Task<List<Ngo>> GetAllNGOs()
+        public async Task<List<Ngo>> GetAllNgos()
         {
             return await _patasDBContext.Ngos.Where(n=> n.Status.Equals(Constant.ACTIVE)).ToListAsync();
         }
 
-        public async Task<Ngo> GetNGOByEmail(string email)
+        public async Task<Ngo> GetNgoByEmail(string email)
         {
             var ngo = await _patasDBContext.Ngos.Where(n => n.Email.Equals(email)).FirstOrDefaultAsync();
             return ngo;

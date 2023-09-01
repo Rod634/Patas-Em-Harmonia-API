@@ -1,6 +1,6 @@
-﻿namespace Patas.Em.Harmonia.Domain.Models
+﻿namespace Patas.Em.Harmonia.Domain.Models.DTO
 {
-    public class AnimalData
+    public class AnimalDto
     {
         public string Name { get; set; }
         public int Age { get; set; }

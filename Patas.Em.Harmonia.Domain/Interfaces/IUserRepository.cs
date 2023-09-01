@@ -1,4 +1,4 @@
-﻿using Patas.Em.Harmonia.Domain.Models;
+﻿using Patas.Em.Harmonia.Domain.Models.DTO;
 using Patas.Em.Harmonia.Domain.Models.Entities;
 
 namespace Patas.Em.Harmonia.Domain.Interfaces
@@ -15,7 +15,7 @@ namespace Patas.Em.Harmonia.Domain.Interfaces
         /// Change a user info
         /// </summary>
         /// <returns>An user with the new data</returns>
-        Task<User> ChangeUserData(UserData userNewData);
+        Task<User> ChangeUserData(UserDto userNewData);
 
         /// <summary>
         /// Delete a user by mail

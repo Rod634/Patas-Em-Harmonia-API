@@ -1,15 +1,15 @@
-﻿using Patas.Em.Harmonia.Domain.Models;
+﻿using Patas.Em.Harmonia.Domain.Models.DTO;
 using Patas.Em.Harmonia.Domain.Models.Entities;
 
 namespace Patas.Em.Harmonia.Domain.Interfaces
 {
-    public interface INGOService
+    public interface INgoService
     {
         /// <summary>
         /// Create a NGO
         /// </summary>
         /// <returns>A bool that indicates success or not</returns>
-        Task<bool> CreateNgo(NgoData ngo);
+        Task<bool> CreateNgo(NgoDto ngo);
 
         /// <summary>
         /// Get all NGO's

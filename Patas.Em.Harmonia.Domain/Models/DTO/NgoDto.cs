@@ -1,6 +1,6 @@
-﻿namespace Patas.Em.Harmonia.Domain.Models
+﻿namespace Patas.Em.Harmonia.Domain.Models.DTO
 {
-    public class NgoData
+    public class NgoDto
     {
         public string Name { get; set; }
         public string Services { get; set; }

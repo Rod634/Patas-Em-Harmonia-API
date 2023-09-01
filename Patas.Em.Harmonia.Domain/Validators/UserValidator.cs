@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using Patas.Em.Harmonia.Domain.Models;
+using Patas.Em.Harmonia.Domain.Models.DTO;
 
 namespace Patas.Em.Harmonia.Domain.Validators
 {
-    public class UserValidator : AbstractValidator<UserData>
+    public class UserValidator : AbstractValidator<UserDto>
     {
         public UserValidator()
         {

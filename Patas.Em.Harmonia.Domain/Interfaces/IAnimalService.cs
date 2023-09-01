@@ -1,4 +1,4 @@
-﻿using Patas.Em.Harmonia.Domain.Models;
+﻿using Patas.Em.Harmonia.Domain.Models.DTO;
 using Patas.Em.Harmonia.Domain.Models.Entities;
 
 namespace Patas.Em.Harmonia.Domain.Interfaces
@@ -21,7 +21,7 @@ namespace Patas.Em.Harmonia.Domain.Interfaces
         /// Create a animal
         /// </summary>
         /// <returns>A bool that indicates success or not</returns>
-        Task<bool> CreateAnimal(AnimalData animal);
+        Task<bool> CreateAnimal(AnimalDto animal);
 
         /// <summary>
         /// ChangeAnimalStatus
