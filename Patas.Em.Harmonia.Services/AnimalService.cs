@@ -10,11 +10,15 @@ namespace Patas.Em.Harmonia.Services
     public class AnimalService : IAnimalService
     {
         private readonly IAnimalRepository _animalRepository;
+        private readonly IVaccineRepository _vaccineRepository;
+        private readonly IDiseaseRepository _diseaseRepository;
         private readonly IValidator<AnimalDto> _validator;
 
-        public AnimalService(IAnimalRepository animalRepository, IValidator<AnimalDto> validator)
+        public AnimalService(IAnimalRepository animalRepository, IVaccineRepository vaccineRepository, IDiseaseRepository diseaseRepository,  IValidator<AnimalDto> validator)
         {
             _animalRepository = animalRepository;
+            _vaccineRepository = vaccineRepository;
+            _diseaseRepository = diseaseRepository;
             _validator = validator;
         }
 
@@ -36,7 +40,16 @@ namespace Patas.Em.Harmonia.Services
                 _validator.ValidateAndThrow(animalRequest);
 
                 var animal = (Animal)animalRequest;
+                animalRequest.Disease.IdAnimal = animal.Id;
+                animalRequest.Vaccine.IdAnimal = animal.Id;
+
                 var isSuccess = await _animalRepository.CreateAnimal(animal);
+
+                if (isSuccess)
+                {
+                    await BindAnimalToDisease(animalRequest.Disease);
+                    await BindAnimalToVaccine(animalRequest.Vaccine);
+                }
                 return isSuccess;
             }
             catch (Exception e)
@@ -59,6 +72,18 @@ namespace Patas.Em.Harmonia.Services
 
             var animals = await _animalRepository.GetAllAnimalsFromAnUser(userId);
             return animals;
+        }
+
+        private async Task<bool> BindAnimalToDisease(DiseaseDto diseaseDto)
+        {
+            var disease = (DiseaseAnimal)diseaseDto;
+            return await _diseaseRepository.AddAnimalDisease(disease);
+        }
+
+        private async Task<bool> BindAnimalToVaccine(VaccineDto vaccineDto)
+        {
+            var vaccine = (VaccineAnimal)vaccineDto;
+            return await _vaccineRepository.AddAnimalVaccine(vaccine);
         }
     }
 }

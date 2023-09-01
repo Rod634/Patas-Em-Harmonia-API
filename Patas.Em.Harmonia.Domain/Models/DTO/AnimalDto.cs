@@ -14,5 +14,8 @@
         public string Status { get; set; }
         public string IdUser { get; set; }
         public string NgoId { get; set; }
+        public DiseaseDto Disease { get; set; }
+        public VaccineDto Vaccine { get; set; }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Patas.Em.Harmonia.Domain.Interfaces;
+using Patas.Em.Harmonia.Domain.Models.Entities;
 using Patas.Em.Harmonia.Infrastructure.Data.Context;
 
 namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
@@ -7,10 +8,24 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
     public class DiseaseRepository : IDiseaseRepository
     {
         private readonly PatasDBContext _patasDBContext;
+        private readonly IRepositoryBase _repositoryBase;
 
-        public DiseaseRepository(PatasDBContext patasDBContext)
+        public DiseaseRepository(PatasDBContext patasDBContext, IRepositoryBase repositoryBase)
         {
             _patasDBContext = patasDBContext;
+            _repositoryBase = repositoryBase;
+        }
+
+        public async Task<bool>  AddAnimalDisease(DiseaseAnimal diseaseAnimal)
+        {
+            try
+            {
+                await _repositoryBase.SaveAsync(diseaseAnimal);
+                return true;
+            }catch
+            {
+                return false;
+            }
         }
 
         public Task<List<string>> GetAllDiseaseNames()
