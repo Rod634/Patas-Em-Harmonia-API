@@ -20,7 +20,7 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
         public async Task<bool> ChangeAnAnimalStatus(string status, string animalId)
         {
             var animal = await _patasDBContext.Animals.FirstOrDefaultAsync(a => a.Id.Equals(animalId));
-            if(animal is not null)
+            if (animal is not null)
             {
                 animal.Status = status;
                 await _repositoryBase.UpdateAsync(animal);
@@ -36,7 +36,7 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
                 await _repositoryBase.SaveAsync(animal);
                 return true;
             }
-            catch 
+            catch
             {
                 return false;
             }
@@ -44,12 +44,13 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
 
         public async Task<List<Animal>> GetAllAnimals()
         {
-            return await _patasDBContext.Animals.ToListAsync();
+            return await _patasDBContext.Animals.Include(a => a.DiseaseAnimals).Include(a => a.VaccineAnimals).ToListAsync();
         }
 
-        public async Task<List<Animal>> GetAllAnimalsFromAnUser(string idUser)
+        public async Task<List<Animal>> GetAllAnimalsFromAnUser(string idUser, string ngoId)
         {
-            var animals = await _patasDBContext.Animals.Where(x => x.IdUser.Equals(idUser) && x.Status == Constant.ACTIVE).ToListAsync();
+            var animals = await _patasDBContext.Animals.Include(a => a.DiseaseAnimals).Include(a => a.VaccineAnimals).
+                Where(x => (x.IdUser.Equals(idUser) || x.NgoId.Equals(ngoId)) && x.Status == Constant.ACTIVE).ToListAsync();
             return animals;
         }
     }

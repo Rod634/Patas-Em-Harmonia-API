@@ -1,5 +1,4 @@
-﻿
-namespace Patas.Em.Harmonia.Domain.Interfaces
+﻿namespace Patas.Em.Harmonia.Domain.Interfaces
 {
     public interface IVaccineService
     {

@@ -9,7 +9,7 @@ namespace Patas.Em.Harmonia.Domain.Interfaces
         /// Get animal by user
         /// </summary>
         /// <returns>Returns an User Animals</returns>
-        Task<List<Animal>> GetAnimalsFromAUser(string userId);
+        Task<List<Animal>> GetAnimalsFromAUser(string userId, string ngoId);
 
         /// <summary>
         /// Get all animals

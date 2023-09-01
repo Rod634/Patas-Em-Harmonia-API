@@ -18,6 +18,7 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
                 Services = ngo.Services,
                 Phone = ngo.Phone,
                 Email = ngo.Email,
+                PhotoUrl = ngo.PhotoUrl,
                 Address = ngo.Address,
                 LatitudeLongitude = ngo.LatitudeLongitude,
                 Neighborhood = ngo.Neighborhood,
@@ -31,6 +32,7 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
         public string Services { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
+        public string PhotoUrl { get; set; }
         public string Address { get; set; }
         public string LatitudeLongitude { get; set; }
         public string Neighborhood { get; set; }

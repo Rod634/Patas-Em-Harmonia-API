@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Interfaces\IVaccineRepository.cs~RF54b9e6fd.TMP" />
     <None Remove="Models\User.cs~RF165555b2.TMP" />
   </ItemGroup>
 

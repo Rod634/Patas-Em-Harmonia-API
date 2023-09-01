@@ -14,7 +14,7 @@ namespace Patas.Em.Harmonia.Domain.Interfaces
         /// Get all animals from an user
         /// </summary>
         /// <returns>Returns a list of animals</returns>
-        Task<List<Animal>> GetAllAnimalsFromAnUser(string idUser);
+        Task<List<Animal>> GetAllAnimalsFromAnUser(string idUser, string ngoId);
 
         /// <summary>
         /// Change An animal status
