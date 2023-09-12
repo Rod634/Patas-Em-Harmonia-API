@@ -23,9 +23,9 @@ namespace Patas.Em.Harmonia.API.Controllers
         }
 
         [HttpPost("change-status")]
-        public async Task<IActionResult> ChangeAnimalStatusAsync(string status, string animalId)
+        public async Task<IActionResult> ChangeAnimalDataAsync(UpdateAnimalDto animal)
         {
-            var response = await _animalService.ChangeAnimalStatus(status, animalId);
+            var response = await _animalService.UpdateAnimal(animal);
             return response ? Ok() : NoContent();
         }
 

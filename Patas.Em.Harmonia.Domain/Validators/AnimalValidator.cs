@@ -37,9 +37,9 @@ namespace Patas.Em.Harmonia.Domain.Validators
                .NotNull()
                .Length(2, 255);
 
-           RuleFor(x => x.Status)
-                .NotNull()
-                .Length(2, 255);
+            RuleFor(x => x.Status)
+                 .NotNull()
+                 .Length(2, 255);
         }
     }
 }

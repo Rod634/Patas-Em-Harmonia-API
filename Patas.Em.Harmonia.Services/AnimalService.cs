@@ -22,14 +22,17 @@ namespace Patas.Em.Harmonia.Services
             _validator = validator;
         }
 
-        public async Task<bool> ChangeAnimalStatus(string status, string animalId)
+        public async Task<bool> UpdateAnimal(UpdateAnimalDto animalDto)
         {
-            if (string.IsNullOrEmpty(status) || string.IsNullOrEmpty(animalId))
+            if (string.IsNullOrEmpty(animalDto.IdAnimal))
             {
                 throw new ArgumentException(Constant.STATUS_ID_EMPTY_WARNING);
             }
 
-            var isSuccess = await _animalRepository.ChangeAnAnimalStatus(status, animalId);
+            var animal = (Animal)animalDto.data;
+            animal.Id = animalDto.IdAnimal;
+
+            var isSuccess = await _animalRepository.UpdateAnAnimal(animal);
             return isSuccess;
         }
 
@@ -40,8 +43,9 @@ namespace Patas.Em.Harmonia.Services
                 _validator.ValidateAndThrow(animalRequest);
 
                 var animal = (Animal)animalRequest;
-                animalRequest.Disease.IdAnimal = animal.Id;
-                animalRequest.Vaccine.IdAnimal = animal.Id;
+                var Id = Guid.NewGuid().ToString();
+                animalRequest.Disease.IdAnimal = Id;
+                animalRequest.Vaccine.IdAnimal = Id;
 
                 var isSuccess = await _animalRepository.CreateAnimal(animal);
 

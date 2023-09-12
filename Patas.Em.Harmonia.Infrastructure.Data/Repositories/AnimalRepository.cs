@@ -17,12 +17,11 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
             _patasDBContext = patasDBContext;
         }
 
-        public async Task<bool> ChangeAnAnimalStatus(string status, string animalId)
+        public async Task<bool> UpdateAnAnimal(Animal animal)
         {
-            var animal = await _patasDBContext.Animals.FirstOrDefaultAsync(a => a.Id.Equals(animalId));
-            if (animal is not null)
+            var databaseAnimal = await _patasDBContext.Animals.FirstOrDefaultAsync(a => a.Id.Equals(animal.Id));
+            if (databaseAnimal is not null)
             {
-                animal.Status = status;
                 await _repositoryBase.UpdateAsync(animal);
                 return true;
             }

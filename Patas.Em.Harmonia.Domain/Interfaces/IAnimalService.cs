@@ -27,6 +27,6 @@ namespace Patas.Em.Harmonia.Domain.Interfaces
         /// ChangeAnimalStatus
         /// </summary>
         /// <returns>A bool that indicates success or not</returns>
-        Task<bool> ChangeAnimalStatus(string status, string animalId);
+        Task<bool> UpdateAnimal(UpdateAnimalDto animalDto);
     }
 }
