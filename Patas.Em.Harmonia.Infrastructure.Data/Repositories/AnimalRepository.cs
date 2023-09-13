@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Patas.Em.Harmonia.Domain.Constants;
 using Patas.Em.Harmonia.Domain.Interfaces;
+using Patas.Em.Harmonia.Domain.Models.DTO;
 using Patas.Em.Harmonia.Domain.Models.Entities;
 using Patas.Em.Harmonia.Infrastructure.Data.Context;
 
@@ -17,12 +18,24 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
             _patasDBContext = patasDBContext;
         }
 
-        public async Task<bool> UpdateAnAnimal(Animal animal)
+        public async Task<bool> UpdateAnAnimal(UpdateAnimalDto animal)
         {
-            var databaseAnimal = await _patasDBContext.Animals.FirstOrDefaultAsync(a => a.Id.Equals(animal.Id));
+            var databaseAnimal = await _patasDBContext.Animals.FirstOrDefaultAsync(a => a.Id.Equals(animal.IdAnimal));
             if (databaseAnimal is not null)
             {
-                await _repositoryBase.UpdateAsync(animal);
+                databaseAnimal.Name = animal.Name;
+                databaseAnimal.Gender = animal.Gender;
+                databaseAnimal.Errant = animal.Errant;
+                databaseAnimal.Race = animal.Race;
+                databaseAnimal.Age = animal.Age;
+                databaseAnimal.PhotoUrl = animal.PhotoUrl;
+                databaseAnimal.Species = animal.Species;
+                databaseAnimal.Status = animal.Status;
+                databaseAnimal.NgoId = animal.NgoId;
+                databaseAnimal.Neighborhood = animal.Neighborhood;
+                databaseAnimal.LatitudeLongitude = animal.LatitudeLongitude;
+
+                await _repositoryBase.UpdateAsync(databaseAnimal);
                 return true;
             }
             return false;

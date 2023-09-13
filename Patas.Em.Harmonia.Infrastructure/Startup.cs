@@ -69,7 +69,7 @@ namespace Patas.Em.Harmonia.Infrastructure.Setup
         private void ConfigureValidators()
         {
             Services.AddScoped<IValidator<UserDto>, UserValidator>();
-            Services.AddScoped<IValidator<AnimalDto>, AnimalValidator>();
+            Services.AddScoped<IValidator<CreateAnimalDto>, AnimalValidator>();
             Services.AddScoped<IValidator<NgoDto>, NgoValidator>();
         }
 

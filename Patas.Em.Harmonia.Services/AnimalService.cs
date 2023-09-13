@@ -12,9 +12,9 @@ namespace Patas.Em.Harmonia.Services
         private readonly IAnimalRepository _animalRepository;
         private readonly IVaccineRepository _vaccineRepository;
         private readonly IDiseaseRepository _diseaseRepository;
-        private readonly IValidator<AnimalDto> _validator;
+        private readonly IValidator<CreateAnimalDto> _validator;
 
-        public AnimalService(IAnimalRepository animalRepository, IVaccineRepository vaccineRepository, IDiseaseRepository diseaseRepository,  IValidator<AnimalDto> validator)
+        public AnimalService(IAnimalRepository animalRepository, IVaccineRepository vaccineRepository, IDiseaseRepository diseaseRepository,  IValidator<CreateAnimalDto> validator)
         {
             _animalRepository = animalRepository;
             _vaccineRepository = vaccineRepository;
@@ -22,21 +22,18 @@ namespace Patas.Em.Harmonia.Services
             _validator = validator;
         }
 
-        public async Task<bool> UpdateAnimal(UpdateAnimalDto animalDto)
+        public async Task<bool> UpdateAnimal(UpdateAnimalDto animal)
         {
-            if (string.IsNullOrEmpty(animalDto.IdAnimal))
+            if (string.IsNullOrEmpty(animal.IdAnimal))
             {
                 throw new ArgumentException(Constant.STATUS_ID_EMPTY_WARNING);
             }
-
-            var animal = (Animal)animalDto.data;
-            animal.Id = animalDto.IdAnimal;
 
             var isSuccess = await _animalRepository.UpdateAnAnimal(animal);
             return isSuccess;
         }
 
-        public async Task<bool> CreateAnimal(AnimalDto animalRequest)
+        public async Task<bool> CreateAnimal(CreateAnimalDto animalRequest)
         {
             try
             {
@@ -44,15 +41,13 @@ namespace Patas.Em.Harmonia.Services
 
                 var animal = (Animal)animalRequest;
                 var Id = Guid.NewGuid().ToString();
-                animalRequest.Disease.IdAnimal = Id;
-                animalRequest.Vaccine.IdAnimal = Id;
 
                 var isSuccess = await _animalRepository.CreateAnimal(animal);
 
                 if (isSuccess)
                 {
-                    await BindAnimalToDisease(animalRequest.Disease);
-                    await BindAnimalToVaccine(animalRequest.Vaccine);
+                    await BindAnimalToDisease(animalRequest.Disease, Id);
+                    await BindAnimalToVaccine(animalRequest.Vaccine, Id);
                 }
                 return isSuccess;
             }
@@ -78,16 +73,27 @@ namespace Patas.Em.Harmonia.Services
             return animals;
         }
 
-        private async Task<bool> BindAnimalToDisease(DiseaseDto diseaseDto)
+        private async Task<bool> BindAnimalToDisease(List<DiseaseDto> diseaseDto, string id)
         {
-            var disease = (DiseaseAnimal)diseaseDto;
-            return await _diseaseRepository.AddAnimalDisease(disease);
+            foreach (DiseaseDto disease in diseaseDto)
+            {
+                var d = (DiseaseAnimal)disease;
+                d.IdAnimal = id;
+                await _diseaseRepository.AddAnimalDisease(d);
+            }
+            
+            return true;
         }
 
-        private async Task<bool> BindAnimalToVaccine(VaccineDto vaccineDto)
+        private async Task<bool> BindAnimalToVaccine(List<VaccineDto> vaccineDto, string id)
         {
-            var vaccine = (VaccineAnimal)vaccineDto;
-            return await _vaccineRepository.AddAnimalVaccine(vaccine);
+            foreach(VaccineAnimal vaccine in vaccineDto)
+            {
+                var v = (VaccineAnimal)vaccine;
+                v.IdAnimal = id;
+                await _vaccineRepository.AddAnimalVaccine(v);
+            }
+            return true;
         }
     }
 }

@@ -18,12 +18,12 @@ namespace Patas.Em.Harmonia.Services
             _validator = validator;
         }
 
-        public async Task<User> ChangeUserData(UserDto userNewData)
+        public async Task<User> ChangeUserData(UserDto userNewData, string id)
         {
             try
             {
                 _validator.ValidateAndThrow(userNewData);
-                var user = await _userRepository.ChangeUserData(userNewData);
+                var user = await _userRepository.ChangeUserData(userNewData, id);
                 return user;
 
             }catch(Exception e)

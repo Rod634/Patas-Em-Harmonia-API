@@ -18,9 +18,9 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
             _patasDBContext = patasDBContext;
         }
 
-        public async Task<User> ChangeUserData(UserDto userNewData)
+        public async Task<User> ChangeUserData(UserDto userNewData, string id)
         {
-            var user = await GetUserByMail(userNewData.Email);
+            var user = await GetUserByID(id);
 
             if (user == null)
             {
@@ -67,6 +67,12 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
         public async Task<User> GetUserByMail(string email)
         {
             var user = await _patasDBContext.Users.Where(u => u.Email.Equals(email)).FirstOrDefaultAsync();
+            return user;
+        }
+
+        private async Task<User> GetUserByID(string id)
+        {
+            var user = await _patasDBContext.Users.Where(u => u.Id.Equals(id)).FirstOrDefaultAsync();
             return user;
         }
     }
