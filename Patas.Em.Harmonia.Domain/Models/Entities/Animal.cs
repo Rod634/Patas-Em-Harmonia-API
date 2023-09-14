@@ -13,11 +13,10 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
             VaccineAnimals = new HashSet<VaccineAnimal>();
         }
 
-        public static explicit operator Animal(AnimalDto animal)
+        public static explicit operator Animal(CreateAnimalDto animal)
         {
             return new()
             {
-                Id = Guid.NewGuid().ToString(),
                 Name = animal.Name,
                 Age = animal.Age,
                 Race = animal.Race,

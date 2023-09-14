@@ -37,9 +37,9 @@ namespace Patas.Em.Harmonia.API.Controllers
         }
 
         [HttpPatch]
-        public async Task<IActionResult> ChangeUserDataAsync([FromBody] UserDto user)
+        public async Task<IActionResult> ChangeUserDataAsync([FromBody] UserDto user, string id)
         {
-            var response = await _userService.ChangeUserData(user);
+            var response = await _userService.ChangeUserData(user, id);
             return Ok(response);
         }
     }

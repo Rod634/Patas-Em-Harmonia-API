@@ -1,7 +1,8 @@
 ﻿namespace Patas.Em.Harmonia.Domain.Models.DTO
 {
-    public class AnimalDto
+    public class UpdateAnimalDto
     {
+        public string IdAnimal { get; set; } 
         public string Name { get; set; }
         public int Age { get; set; }
         public string Race { get; set; }
@@ -12,10 +13,7 @@
         public string LatitudeLongitude { get; set; }
         public string Neighborhood { get; set; }
         public string Status { get; set; }
-        public string IdUser { get; set; }
         public string NgoId { get; set; }
-        public DiseaseDto Disease { get; set; }
-        public VaccineDto Vaccine { get; set; }
 
     }
 }

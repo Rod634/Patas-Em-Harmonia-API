@@ -21,12 +21,12 @@ namespace Patas.Em.Harmonia.Domain.Interfaces
         /// Create a animal
         /// </summary>
         /// <returns>A bool that indicates success or not</returns>
-        Task<bool> CreateAnimal(AnimalDto animal);
+        Task<bool> CreateAnimal(CreateAnimalDto animal);
 
         /// <summary>
         /// ChangeAnimalStatus
         /// </summary>
         /// <returns>A bool that indicates success or not</returns>
-        Task<bool> ChangeAnimalStatus(string status, string animalId);
+        Task<bool> UpdateAnimal(UpdateAnimalDto animalDto);
     }
 }

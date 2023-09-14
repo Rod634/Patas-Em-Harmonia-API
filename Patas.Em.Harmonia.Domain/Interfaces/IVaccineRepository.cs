@@ -16,5 +16,11 @@ namespace Patas.Em.Harmonia.Domain.Interfaces
         /// </summary>
         /// <returns>A bool that indicates success or not</returns>
         Task<bool> AddAnimalVaccine(VaccineAnimal vaccineAnimal);
+
+        /// <summary>
+        /// Change a vaccine 
+        /// </summary>
+        /// <returns>A bool that indicates success or not</returns>
+        Task<bool> ChangeAnimalVaccine(ChangeVaccineDto vaccineAnimal);
     }
 }

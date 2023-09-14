@@ -3,7 +3,7 @@ using Patas.Em.Harmonia.Domain.Models.DTO;
 
 namespace Patas.Em.Harmonia.Domain.Validators
 {
-    public class AnimalValidator : AbstractValidator<AnimalDto>
+    public class AnimalValidator : AbstractValidator<CreateAnimalDto>
     {
         public AnimalValidator()
         {
@@ -37,9 +37,9 @@ namespace Patas.Em.Harmonia.Domain.Validators
                .NotNull()
                .Length(2, 255);
 
-           RuleFor(x => x.Status)
-                .NotNull()
-                .Length(2, 255);
+            RuleFor(x => x.Status)
+                 .NotNull()
+                 .Length(2, 255);
         }
     }
 }

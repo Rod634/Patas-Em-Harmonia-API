@@ -15,7 +15,6 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
         {
             return new()
             {
-                IdAnimal = vaccine.IdAnimal,
                 IdVaccine = vaccine.IdVaccine,
                 DtVaccine = vaccine.DtVaccine
             };

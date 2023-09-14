@@ -16,16 +16,16 @@ namespace Patas.Em.Harmonia.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateAnimalAsync([FromBody] AnimalDto animal)
+        public async Task<IActionResult> CreateAnimalAsync([FromBody] CreateAnimalDto animal)
         {
             var response = await _animalService.CreateAnimal(animal);
             return response ? StatusCode(201) : StatusCode(400);
         }
 
-        [HttpPost("change-status")]
-        public async Task<IActionResult> ChangeAnimalStatusAsync(string status, string animalId)
+        [HttpPost("change")]
+        public async Task<IActionResult> ChangeAnimalDataAsync(UpdateAnimalDto animal)
         {
-            var response = await _animalService.ChangeAnimalStatus(status, animalId);
+            var response = await _animalService.UpdateAnimal(animal);
             return response ? Ok() : NoContent();
         }
 
