@@ -29,6 +29,28 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
             }
         }
 
+        public async Task<bool> ChangeAnimalDisease(ChangeDiseaseDto diseaseDto)
+        {
+            try
+            {
+                var diseaseDatabase = _patasDBContext.DiseaseAnimals.FirstOrDefault(v => v.Id == diseaseDto.Id);
+                if (diseaseDatabase is not null)
+                {
+                    diseaseDatabase.IdDisease = diseaseDto.IdDisease;
+                    diseaseDatabase.IdStatus = diseaseDto.IdStatus;
+
+
+                    await _repositoryBase.UpdateAsync(diseaseDatabase);
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
         public Task<List<NameIdDto>> GetAllDiseaseNames()
         {
             return _patasDBContext.Diseases.Select(d => new NameIdDto() { Id = d.Id, Name = d.Name }).ToListAsync();

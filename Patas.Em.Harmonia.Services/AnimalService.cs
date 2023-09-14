@@ -87,7 +87,7 @@ namespace Patas.Em.Harmonia.Services
 
         private async Task<bool> BindAnimalToVaccine(List<VaccineDto> vaccineDto, string id)
         {
-            foreach(VaccineAnimal vaccine in vaccineDto)
+            foreach(VaccineDto vaccine in vaccineDto)
             {
                 var v = (VaccineAnimal)vaccine;
                 v.IdAnimal = id;

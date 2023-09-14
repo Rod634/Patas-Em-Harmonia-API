@@ -27,7 +27,28 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
             catch(Exception e)
             {
                 throw new Exception(e.Message);
-                return false;
+            }
+        }
+
+        public async Task<bool> ChangeAnimalVaccine(ChangeVaccineDto vaccineAnimal)
+        {
+            try
+            {
+                var vaccineDatabase = _patasDBContext.VaccineAnimals.FirstOrDefault(v => v.Id == vaccineAnimal.Id);
+                if(vaccineDatabase is not null)
+                {
+                    vaccineDatabase.DtVaccine = vaccineAnimal.DtVaccine;
+                    vaccineDatabase.IdVaccine = vaccineAnimal.IdVaccine;
+      
+
+                    await _repositoryBase.UpdateAsync(vaccineDatabase);
+                    return true;
+                }
+               return false;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
             }
         }
 
