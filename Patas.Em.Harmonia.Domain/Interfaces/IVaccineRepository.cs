@@ -1,4 +1,5 @@
-﻿using Patas.Em.Harmonia.Domain.Models.Entities;
+﻿using Patas.Em.Harmonia.Domain.Models.DTO;
+using Patas.Em.Harmonia.Domain.Models.Entities;
 
 namespace Patas.Em.Harmonia.Domain.Interfaces
 {
@@ -8,7 +9,7 @@ namespace Patas.Em.Harmonia.Domain.Interfaces
         /// Get an user data by email
         /// </summary>
         /// <returns>Returns a list with all vaccines</returns>
-        Task<List<string>> GetAllVaccines();
+        Task<List<NameIdDto>> GetAllVaccines();
 
         /// <summary>
         /// Bind a animal with a vaccine

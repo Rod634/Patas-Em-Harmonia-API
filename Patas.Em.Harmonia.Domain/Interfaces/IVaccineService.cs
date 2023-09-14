@@ -1,4 +1,6 @@
-﻿namespace Patas.Em.Harmonia.Domain.Interfaces
+﻿using Patas.Em.Harmonia.Domain.Models.DTO;
+
+namespace Patas.Em.Harmonia.Domain.Interfaces
 {
     public interface IVaccineService
     {
@@ -6,6 +8,6 @@
         /// Get all vaccine names
         /// </summary>
         /// <returns>Returns a list with all vaccine names</returns>
-        Task<List<string>> GetAllVaccines();
+        Task<List<NameIdDto>> GetAllVaccines();
     }
 }

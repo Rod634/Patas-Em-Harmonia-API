@@ -32,13 +32,13 @@ namespace Patas.Em.Harmonia.Services
             }
         }
 
-        public async Task<bool> CreateUser(UserDto user)
+        public async Task<bool> CreateUser(UserDto userDto)
         {
             try
             {
-                _validator.ValidateAndThrow(user);
+                _validator.ValidateAndThrow(userDto);
 
-                var newUser = (User)user;
+                var newUser = (User)userDto;
                 var isSuccess = await _userRepository.CreateUser(newUser);
 
                 return isSuccess;
