@@ -1,6 +1,7 @@
 using Patas.Em.Harmonia.Infrastructure.Setup;
 
 var builder = WebApplication.CreateBuilder(args);
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var startup = new Startup(builder.Configuration, builder.Services);
 startup.AddDependencies();
@@ -15,7 +16,16 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //add cors
-builder.Services.AddCors();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(MyAllowSpecificOrigins,
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+        });
+});
 
 var app = builder.Build();
 
@@ -30,7 +40,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.UseCors(opt => opt.AllowAnyOrigin());
+app.UseCors(MyAllowSpecificOrigins);
 
 app.MapControllers();
 
