@@ -27,7 +27,7 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
                 AditionalInfo = newUser.AditionalInfo,
                 Created = DateTime.UtcNow,
                 Status = Constant.ACTIVE,
-                Passwrd = "zap"
+                Passwrd = newUser.Password
             };
         }
 
