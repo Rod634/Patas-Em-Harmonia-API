@@ -47,7 +47,8 @@ namespace Patas.Em.Harmonia.Infrastructure.Setup
                     .AddScoped<INgoService, NgoService>()
                     .AddScoped<IVaccineService, VaccineService>()
                     .AddScoped<IStatusService, StatusService>()
-                    .AddScoped<IDiseaseService, DiseaseService>();
+                    .AddScoped<IDiseaseService, DiseaseService>()
+                    .AddScoped<IAccessService, AccessService>();
 
             ConfigureValidators();
             AddDbContext();
@@ -71,6 +72,7 @@ namespace Patas.Em.Harmonia.Infrastructure.Setup
             Services.AddScoped<IValidator<UserDto>, UserValidator>();
             Services.AddScoped<IValidator<CreateAnimalDto>, AnimalValidator>();
             Services.AddScoped<IValidator<NgoDto>, NgoValidator>();
+            Services.AddScoped<IValidator<LoginDto>, LoginValidator>();
         }
 
         private ApiSettings GetSettings()
