@@ -40,14 +40,12 @@ namespace Patas.Em.Harmonia.Services
                 _validator.ValidateAndThrow(animalRequest);
 
                 var animal = (Animal)animalRequest;
-                var Id = Guid.NewGuid().ToString();
-
                 var isSuccess = await _animalRepository.CreateAnimal(animal);
 
                 if (isSuccess)
                 {
-                    await BindAnimalToDisease(animalRequest.Disease, Id);
-                    await BindAnimalToVaccine(animalRequest.Vaccine, Id);
+                    await BindAnimalToDisease(animalRequest.Disease, animal.Id);
+                    await BindAnimalToVaccine(animalRequest.Vaccine, animal.Id);
                 }
                 return isSuccess;
             }

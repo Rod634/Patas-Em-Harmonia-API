@@ -56,10 +56,10 @@ namespace Patas.Em.Harmonia.Infrastructure.Data.Repositories
 
         public async Task<List<Animal>> GetAllAnimals()
         {
-            return await _patasDBContext.Animals.Include(a => a.DiseaseAnimals).Include(a => a.VaccineAnimals).ToListAsync();
+            return await _patasDBContext.Animals.Where(a => a.Status.Equals(Constant.ACTIVE)).Include(a => a.DiseaseAnimals).Include(a => a.VaccineAnimals).ToListAsync();
         }
 
-        public async Task<List<Animal>> GetAllAnimalsFromAnUser(string idUser, string ngoId)
+        public async Task<List<Animal>> GetAllAnimalsFromAnUser(string idUser, string? ngoId)
         {
             var animals = await _patasDBContext.Animals.Include(a => a.DiseaseAnimals).Include(a => a.VaccineAnimals).
                 Where(x => (x.IdUser.Equals(idUser) || x.NgoId.Equals(ngoId)) && x.Status == Constant.ACTIVE).ToListAsync();

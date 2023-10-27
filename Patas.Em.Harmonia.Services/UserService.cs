@@ -61,14 +61,14 @@ namespace Patas.Em.Harmonia.Services
             return isSuccess;
         }
 
-        public async Task<User> GetUserByMail(string email)
+        public async Task<User> GetUserByMail(string email, string id)
         {
-            if (string.IsNullOrEmpty(email))
+            if (string.IsNullOrEmpty(email) && string.IsNullOrEmpty(id))
             {
                 throw new DomainException(Constant.EMAIL_EMPTY_WARNING);
             }
 
-            var user = await _userRepository.GetUserByMail(email);
+            var user = await _userRepository.GetUserByMail(email, id);
 
             return user;
         }

@@ -9,7 +9,7 @@ namespace Patas.Em.Harmonia.Domain.Interfaces
         /// Get an user data by email
         /// </summary>
         /// <returns>Returns an User Data</returns>
-        Task<User> GetUserByMail(string email);
+        Task<User> GetUserByMail(string email, string id);
 
         /// <summary>
         /// Change a user info

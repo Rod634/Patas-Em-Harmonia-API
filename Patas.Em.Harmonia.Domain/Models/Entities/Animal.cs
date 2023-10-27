@@ -17,6 +17,7 @@ namespace Patas.Em.Harmonia.Domain.Models.Entities
         {
             return new()
             {
+                Id = Guid.NewGuid().ToString(),
                 Name = animal.Name,
                 Age = animal.Age,
                 Race = animal.Race,

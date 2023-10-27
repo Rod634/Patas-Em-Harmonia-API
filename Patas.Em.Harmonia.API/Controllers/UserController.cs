@@ -23,9 +23,9 @@ namespace Patas.Em.Harmonia.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUserByEmailAsync([FromQuery] string email)
+        public async Task<IActionResult> GetUserByEmailAsync([FromQuery] string? email, string? id)
         {
-            var response = await _userService.GetUserByMail(email);
+            var response = await _userService.GetUserByMail(email, id);
             return response != null ? Ok(response) : NotFound();
         }
 
